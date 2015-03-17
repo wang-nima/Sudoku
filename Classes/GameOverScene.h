@@ -1,9 +1,9 @@
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#ifndef __GAMEOVERSCENE_SCENE_H__
+#define __GAMEOVERSCENE_SCENE_H__
 
 #include "cocos2d.h"
 
-class HelloWorld : public cocos2d::Layer
+class GameOverScene: public cocos2d::Layer
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
@@ -16,7 +16,7 @@ public:
     void menuCloseCallback(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(GameOverScene);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
