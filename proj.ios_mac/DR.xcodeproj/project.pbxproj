@@ -80,6 +80,7 @@
 		DD01A4D61AB7DD66005D6559 /* Retry Button.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4CB1AB7DD66005D6559 /* Retry Button.png */; };
 		DD01A4D71AB7DD66005D6559 /* Splash Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4CC1AB7DD66005D6559 /* Splash Screen.png */; };
 		DD01A4D81AB7DD66005D6559 /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4CD1AB7DD66005D6559 /* Title.png */; };
+		DDE68E851AC9CB5B0092EBCB /* Pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDE68E831AC9CB5B0092EBCB /* Pipe.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +196,8 @@
 		DD01A4CB1AB7DD66005D6559 /* Retry Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Retry Button.png"; sourceTree = "<group>"; };
 		DD01A4CC1AB7DD66005D6559 /* Splash Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash Screen.png"; sourceTree = "<group>"; };
 		DD01A4CD1AB7DD66005D6559 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title.png; sourceTree = "<group>"; };
+		DDE68E831AC9CB5B0092EBCB /* Pipe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pipe.cpp; sourceTree = "<group>"; };
+		DDE68E841AC9CB5B0092EBCB /* Pipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pipe.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +343,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DDE68E831AC9CB5B0092EBCB /* Pipe.cpp */,
+				DDE68E841AC9CB5B0092EBCB /* Pipe.h */,
 				DD01A49F1AB7CAE6005D6559 /* GameOverScene.cpp */,
 				DD01A4A01AB7CAE6005D6559 /* GameOverScene.h */,
 				DD01A4A11AB7CAE6005D6559 /* GameScene.cpp */,
@@ -561,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE68E851AC9CB5B0092EBCB /* Pipe.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				DD01A4AC1AB7D416005D6559 /* SplashScene.cpp in Sources */,
 				DD01A4A71AB7CAE6005D6559 /* MainMenuScene.cpp in Sources */,
