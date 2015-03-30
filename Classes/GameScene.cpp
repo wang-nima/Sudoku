@@ -42,7 +42,7 @@ bool GameScene::init()
     
     edgeNode->setPosition(Point(visibleSize.width / 2 + origin.x,
                                 visibleSize.height / 2 + origin.y));
-    setPhysicsBody(edgeBody);
+    edgeNode->setPhysicsBody(edgeBody);
     this->addChild(edgeNode);
     
     return true;
