@@ -47,7 +47,7 @@ bool MainMenuScene::init()
                                           CC_CALLBACK_1(MainMenuScene::GoToGameScene, this));
 
     playItem->setPosition( Point(visibleSize.width / 2 + origin.x,
-                                         visibleSize.height / 2 + origin.y));
+                                visibleSize.height / 2 + origin.y));
     auto menu = Menu::create(playItem, NULL);
     menu->setPosition(Point::ZERO);
     

@@ -35,7 +35,16 @@ bool GameScene::init()
     auto backGroundSprite = Sprite::create("Background.png");
     backGroundSprite->setPosition( Point(visibleSize.width / 2 + origin.x,
                                          visibleSize.height / 2 + origin.y));
-
+    this->addChild(backGroundSprite);
+    auto edgeBody = PhysicsBody::createEdgeBox(visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
+    
+    auto edgeNode = Node::create();
+    
+    edgeNode->setPosition(Point(visibleSize.width / 2 + origin.x,
+                                visibleSize.height / 2 + origin.y));
+    setPhysicsBody(edgeBody);
+    this->addChild(edgeNode);
+    
     return true;
 }
 
