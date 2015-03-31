@@ -58,7 +58,6 @@
 		DD01A4A61AB7CAE6005D6559 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD01A4A11AB7CAE6005D6559 /* GameScene.cpp */; };
 		DD01A4A71AB7CAE6005D6559 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD01A4A31AB7CAE6005D6559 /* MainMenuScene.cpp */; };
 		DD01A4AC1AB7D416005D6559 /* SplashScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD01A4AB1AB7D416005D6559 /* SplashScene.cpp */; };
-		DD01A4B81AB7D510005D6559 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4AD1AB7D510005D6559 /* Background.png */; };
 		DD01A4B91AB7D510005D6559 /* Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4AE1AB7D510005D6559 /* Ball.png */; };
 		DD01A4BA1AB7D510005D6559 /* Menu Button Clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4AF1AB7D510005D6559 /* Menu Button Clicked.png */; };
 		DD01A4BB1AB7D510005D6559 /* Menu Button.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4B01AB7D510005D6559 /* Menu Button.png */; };
@@ -69,7 +68,6 @@
 		DD01A4C01AB7D510005D6559 /* Retry Button.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4B51AB7D510005D6559 /* Retry Button.png */; };
 		DD01A4C11AB7D510005D6559 /* Splash Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4B61AB7D510005D6559 /* Splash Screen.png */; };
 		DD01A4C21AB7D510005D6559 /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4B71AB7D510005D6559 /* Title.png */; };
-		DD01A4CE1AB7DD66005D6559 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4C31AB7DD66005D6559 /* Background.png */; };
 		DD01A4CF1AB7DD66005D6559 /* Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4C41AB7DD66005D6559 /* Ball.png */; };
 		DD01A4D01AB7DD66005D6559 /* Menu Button Clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4C51AB7DD66005D6559 /* Menu Button Clicked.png */; };
 		DD01A4D11AB7DD66005D6559 /* Menu Button.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4C61AB7DD66005D6559 /* Menu Button.png */; };
@@ -80,7 +78,7 @@
 		DD01A4D61AB7DD66005D6559 /* Retry Button.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4CB1AB7DD66005D6559 /* Retry Button.png */; };
 		DD01A4D71AB7DD66005D6559 /* Splash Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4CC1AB7DD66005D6559 /* Splash Screen.png */; };
 		DD01A4D81AB7DD66005D6559 /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4CD1AB7DD66005D6559 /* Title.png */; };
-		DDE68E851AC9CB5B0092EBCB /* Pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDE68E831AC9CB5B0092EBCB /* Pipe.cpp */; };
+		DDF97DE81ACB6A6D00C04F20 /* Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DDF97DE71ACB6A6D00C04F20 /* Background.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,7 +172,6 @@
 		DD01A4A41AB7CAE6005D6559 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		DD01A4A81AB7CC72005D6559 /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		DD01A4AB1AB7D416005D6559 /* SplashScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScene.cpp; sourceTree = "<group>"; };
-		DD01A4AD1AB7D510005D6559 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		DD01A4AE1AB7D510005D6559 /* Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball.png; sourceTree = "<group>"; };
 		DD01A4AF1AB7D510005D6559 /* Menu Button Clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Button Clicked.png"; sourceTree = "<group>"; };
 		DD01A4B01AB7D510005D6559 /* Menu Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Button.png"; sourceTree = "<group>"; };
@@ -185,7 +182,6 @@
 		DD01A4B51AB7D510005D6559 /* Retry Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Retry Button.png"; sourceTree = "<group>"; };
 		DD01A4B61AB7D510005D6559 /* Splash Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash Screen.png"; sourceTree = "<group>"; };
 		DD01A4B71AB7D510005D6559 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title.png; sourceTree = "<group>"; };
-		DD01A4C31AB7DD66005D6559 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		DD01A4C41AB7DD66005D6559 /* Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball.png; sourceTree = "<group>"; };
 		DD01A4C51AB7DD66005D6559 /* Menu Button Clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Button Clicked.png"; sourceTree = "<group>"; };
 		DD01A4C61AB7DD66005D6559 /* Menu Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Button.png"; sourceTree = "<group>"; };
@@ -196,8 +192,7 @@
 		DD01A4CB1AB7DD66005D6559 /* Retry Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Retry Button.png"; sourceTree = "<group>"; };
 		DD01A4CC1AB7DD66005D6559 /* Splash Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash Screen.png"; sourceTree = "<group>"; };
 		DD01A4CD1AB7DD66005D6559 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title.png; sourceTree = "<group>"; };
-		DDE68E831AC9CB5B0092EBCB /* Pipe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pipe.cpp; sourceTree = "<group>"; };
-		DDE68E841AC9CB5B0092EBCB /* Pipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pipe.h; sourceTree = "<group>"; };
+		DDF97DE71ACB6A6D00C04F20 /* Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,7 +308,6 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DD01A4C31AB7DD66005D6559 /* Background.png */,
 				DD01A4C41AB7DD66005D6559 /* Ball.png */,
 				DD01A4C51AB7DD66005D6559 /* Menu Button Clicked.png */,
 				DD01A4C61AB7DD66005D6559 /* Menu Button.png */,
@@ -324,7 +318,7 @@
 				DD01A4CB1AB7DD66005D6559 /* Retry Button.png */,
 				DD01A4CC1AB7DD66005D6559 /* Splash Screen.png */,
 				DD01A4CD1AB7DD66005D6559 /* Title.png */,
-				DD01A4AD1AB7D510005D6559 /* Background.png */,
+				DDF97DE71ACB6A6D00C04F20 /* Background.jpg */,
 				DD01A4AE1AB7D510005D6559 /* Ball.png */,
 				DD01A4AF1AB7D510005D6559 /* Menu Button Clicked.png */,
 				DD01A4B01AB7D510005D6559 /* Menu Button.png */,
@@ -343,8 +337,6 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DDE68E831AC9CB5B0092EBCB /* Pipe.cpp */,
-				DDE68E841AC9CB5B0092EBCB /* Pipe.h */,
 				DD01A49F1AB7CAE6005D6559 /* GameOverScene.cpp */,
 				DD01A4A01AB7CAE6005D6559 /* GameOverScene.h */,
 				DD01A4A11AB7CAE6005D6559 /* GameScene.cpp */,
@@ -524,7 +516,6 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				DD01A4BE1AB7D510005D6559 /* Play Button.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
-				DD01A4B81AB7D510005D6559 /* Background.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				DD01A4BA1AB7D510005D6559 /* Menu Button Clicked.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
@@ -540,12 +531,12 @@
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				DD01A4C11AB7D510005D6559 /* Splash Screen.png in Resources */,
-				DD01A4CE1AB7DD66005D6559 /* Background.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				DD01A4D21AB7DD66005D6559 /* Pipe.png in Resources */,
 				DD01A4D61AB7DD66005D6559 /* Retry Button.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 				DD01A4CF1AB7DD66005D6559 /* Ball.png in Resources */,
+				DDF97DE81ACB6A6D00C04F20 /* Background.jpg in Resources */,
 				DD01A4D51AB7DD66005D6559 /* Retry Button Clicked.png in Resources */,
 				DD01A4D31AB7DD66005D6559 /* Play Button Clicked.png in Resources */,
 			);
@@ -566,7 +557,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDE68E851AC9CB5B0092EBCB /* Pipe.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				DD01A4AC1AB7D416005D6559 /* SplashScene.cpp in Sources */,
 				DD01A4A71AB7CAE6005D6559 /* MainMenuScene.cpp in Sources */,

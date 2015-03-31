@@ -46,14 +46,10 @@ bool GameScene::init()
     edgeNode->setPhysicsBody(edgeBody);
     this->addChild(edgeNode);
     
-    this->schedule( schedule_selector(GameScene::SpawnPipe), PIPE_SPAWN_FREQUENCY * visibleSize. width);
     
     return true;
 }
 
-void GameScene::SpawnPipe(float dt) {
-    pipe.SpawnPipe(this);
-}
 
 
 void GameScene::menuCloseCallback(Ref* pSender)
