@@ -17,6 +17,7 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(GameOverScene);
+
 };
 
 #endif // __HELLOWORLD_SCENE_H__

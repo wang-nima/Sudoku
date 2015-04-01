@@ -2,6 +2,7 @@
 #define __GAMESCENE_SCENE_H__
 
 #include "cocos2d.h"
+#include "sudokuentity.h"
 
 class GameScene: public cocos2d::Layer
 {
@@ -18,11 +19,7 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(GameScene);
 private:
-    void setPhysicsWorld (cocos2d::PhysicsWorld *world) {
-        sceneWorld = world;
-    }
-    
-    cocos2d::PhysicsWorld *sceneWorld;
+    SudokuEntity game;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

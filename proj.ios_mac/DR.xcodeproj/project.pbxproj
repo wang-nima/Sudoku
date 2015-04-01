@@ -78,6 +78,7 @@
 		DD01A4D61AB7DD66005D6559 /* Retry Button.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4CB1AB7DD66005D6559 /* Retry Button.png */; };
 		DD01A4D71AB7DD66005D6559 /* Splash Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4CC1AB7DD66005D6559 /* Splash Screen.png */; };
 		DD01A4D81AB7DD66005D6559 /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4CD1AB7DD66005D6559 /* Title.png */; };
+		DD10A8671ACBA58700435B95 /* sudokuentity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD10A8651ACBA58700435B95 /* sudokuentity.cpp */; };
 		DDF97DE81ACB6A6D00C04F20 /* Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DDF97DE71ACB6A6D00C04F20 /* Background.jpg */; };
 /* End PBXBuildFile section */
 
@@ -192,6 +193,8 @@
 		DD01A4CB1AB7DD66005D6559 /* Retry Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Retry Button.png"; sourceTree = "<group>"; };
 		DD01A4CC1AB7DD66005D6559 /* Splash Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash Screen.png"; sourceTree = "<group>"; };
 		DD01A4CD1AB7DD66005D6559 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title.png; sourceTree = "<group>"; };
+		DD10A8651ACBA58700435B95 /* sudokuentity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sudokuentity.cpp; sourceTree = "<group>"; };
+		DD10A8661ACBA58700435B95 /* sudokuentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sudokuentity.h; sourceTree = "<group>"; };
 		DDF97DE71ACB6A6D00C04F20 /* Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -337,6 +340,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DD10A8651ACBA58700435B95 /* sudokuentity.cpp */,
+				DD10A8661ACBA58700435B95 /* sudokuentity.h */,
 				DD01A49F1AB7CAE6005D6559 /* GameOverScene.cpp */,
 				DD01A4A01AB7CAE6005D6559 /* GameOverScene.h */,
 				DD01A4A11AB7CAE6005D6559 /* GameScene.cpp */,
@@ -563,6 +568,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				DD01A4A61AB7CAE6005D6559 /* GameScene.cpp in Sources */,
+				DD10A8671ACBA58700435B95 /* sudokuentity.cpp in Sources */,
 				DD01A4A51AB7CAE6005D6559 /* GameOverScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
