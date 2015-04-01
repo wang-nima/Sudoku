@@ -51,7 +51,7 @@ bool MainMenuScene::init()
     
     
     
-    auto ttf1 = Label::createWithSystemFont("Sudoku", "Arial", 56);
+    auto ttf1 = Label::createWithSystemFont("Sudoku", "Marker Felt", 156);
     
     
     ttf1->setPosition(visibleSize.width / 2, visibleSize.height / 2 + 300);
@@ -63,19 +63,4 @@ bool MainMenuScene::init()
 void MainMenuScene::GoToGameScene (cocos2d::Ref *sender) {
     auto scene = GameScene::createScene();
     Director::getInstance()->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
-}
-
-
-void MainMenuScene::menuCloseCallback(Ref* pSender)
-{
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
-	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
-    return;
-#endif
-
-    Director::getInstance()->end();
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
 }

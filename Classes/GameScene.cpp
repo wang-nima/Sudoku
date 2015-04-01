@@ -1,7 +1,10 @@
 #include "GameScene.h"
 #include "Definitions.h"
+#include <UIButton.h>
 
 USING_NS_CC;
+using namespace cocos2d::ui;
+
 
 Scene* GameScene::createScene()
 {
@@ -36,21 +39,12 @@ bool GameScene::init()
                                          visibleSize.height / 2 + origin.y));
     this->addChild(backGroundSprite);
     
+    auto uButton = Button::create();
+    uButton->setTouchEnabled(true);
+    uButton->loadTextures("cocosgui/animationbuttonnormal.png", "cocosgui/animationbuttonpressed.png", "");
+    uButton->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2) + Point(0, -50));
+    this->addChild(uButton);
+    
+    
     return true;
-}
-
-
-
-void GameScene::menuCloseCallback(Ref* pSender)
-{
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
-	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
-    return;
-#endif
-
-    Director::getInstance()->end();
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
 }

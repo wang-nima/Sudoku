@@ -57,7 +57,6 @@
 		DD01A4A51AB7CAE6005D6559 /* GameOverScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD01A49F1AB7CAE6005D6559 /* GameOverScene.cpp */; };
 		DD01A4A61AB7CAE6005D6559 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD01A4A11AB7CAE6005D6559 /* GameScene.cpp */; };
 		DD01A4A71AB7CAE6005D6559 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD01A4A31AB7CAE6005D6559 /* MainMenuScene.cpp */; };
-		DD01A4AC1AB7D416005D6559 /* SplashScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD01A4AB1AB7D416005D6559 /* SplashScene.cpp */; };
 		DD01A4B91AB7D510005D6559 /* Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4AE1AB7D510005D6559 /* Ball.png */; };
 		DD01A4BA1AB7D510005D6559 /* Menu Button Clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4AF1AB7D510005D6559 /* Menu Button Clicked.png */; };
 		DD01A4BB1AB7D510005D6559 /* Menu Button.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4B01AB7D510005D6559 /* Menu Button.png */; };
@@ -164,7 +163,6 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
-		DD01A49D1AB7C8D0005D6559 /* SplashScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScene.h; sourceTree = "<group>"; };
 		DD01A49F1AB7CAE6005D6559 /* GameOverScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverScene.cpp; sourceTree = "<group>"; };
 		DD01A4A01AB7CAE6005D6559 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 		DD01A4A11AB7CAE6005D6559 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 		DD01A4A31AB7CAE6005D6559 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
 		DD01A4A41AB7CAE6005D6559 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		DD01A4A81AB7CC72005D6559 /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
-		DD01A4AB1AB7D416005D6559 /* SplashScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScene.cpp; sourceTree = "<group>"; };
 		DD01A4AE1AB7D510005D6559 /* Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball.png; sourceTree = "<group>"; };
 		DD01A4AF1AB7D510005D6559 /* Menu Button Clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Button Clicked.png"; sourceTree = "<group>"; };
 		DD01A4B01AB7D510005D6559 /* Menu Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Button.png"; sourceTree = "<group>"; };
@@ -348,8 +345,6 @@
 				DD01A4A21AB7CAE6005D6559 /* GameScene.h */,
 				DD01A4A31AB7CAE6005D6559 /* MainMenuScene.cpp */,
 				DD01A4A41AB7CAE6005D6559 /* MainMenuScene.h */,
-				DD01A49D1AB7C8D0005D6559 /* SplashScene.h */,
-				DD01A4AB1AB7D416005D6559 /* SplashScene.cpp */,
 				DD01A4A81AB7CC72005D6559 /* Definitions.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
@@ -563,7 +558,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				DD01A4AC1AB7D416005D6559 /* SplashScene.cpp in Sources */,
 				DD01A4A71AB7CAE6005D6559 /* MainMenuScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
