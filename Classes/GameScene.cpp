@@ -39,12 +39,44 @@ bool GameScene::init()
                                          visibleSize.height / 2 + origin.y));
     this->addChild(backGroundSprite);
     
-    auto uButton = Button::create();
-    uButton->setTouchEnabled(true);
-    uButton->loadTextures("cocosgui/animationbuttonnormal.png", "cocosgui/animationbuttonpressed.png", "");
-    uButton->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2) + Point(0, -50));
-    this->addChild(uButton);
     
     
+    auto touchListener = EventListenerTouchOneByOne::create();
+    touchListener->onTouchBegan = [=](Touch* touch, Event* event){
+        // your code
+        doUp();
+        return true; // if you are consuming it
+    };
+    
+    touchListener->onTouchEnded = [=](Touch* touch, Event* event){
+        // your code
+    };
+    
+    return true;
+}
+
+
+//滑向上下左右的方法
+bool GameScene::doUp()
+{
+    log("doUp");
+    return true;
+}
+
+bool GameScene::doDown()
+{
+    log("doDown");
+    return true;
+}
+
+bool GameScene::doLeft()
+{
+    log("doLeft");
+    return true;
+}
+
+bool GameScene::doRight()
+{
+    log("doRight");
     return true;
 }
