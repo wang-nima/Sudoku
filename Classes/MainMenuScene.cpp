@@ -32,16 +32,12 @@ bool MainMenuScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    auto backGroundSprite = Sprite::create("Background.png");
+    auto backGroundSprite = Sprite::create("Background.jpg");
     backGroundSprite->setPosition( Point(visibleSize.width / 2 + origin.x,
                                          visibleSize.height / 2 + origin.y));
     
     this->addChild(backGroundSprite);
     
-    auto title = Sprite::create("Title.png");
-    title->setPosition( Point(visibleSize.width / 2 + origin.x,
-                              visibleSize.height - title->getContentSize().height));
-    this->addChild(title);
     
     auto playItem = MenuItemImage::create("Play Button.png", "Play Button Clicked.png",
                                           CC_CALLBACK_1(MainMenuScene::GoToGameScene, this));
@@ -52,6 +48,14 @@ bool MainMenuScene::init()
     menu->setPosition(Point::ZERO);
     
     this->addChild(menu);
+    
+    
+    
+    auto ttf1 = Label::createWithSystemFont("Sudoku", "Arial", 56);
+    
+    
+    ttf1->setPosition(visibleSize.width / 2, visibleSize.height / 2 + 300);
+    this->addChild(ttf1);
     
     return true;
 }
