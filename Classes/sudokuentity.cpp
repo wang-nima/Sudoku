@@ -281,7 +281,7 @@ void SudokuEntity::generateHavingFun()
 {
     memset(endStatus, 0, sizeof(endStatus));
 
-    srand(time(0));
+    srand((int)time(0));
     resultgenerator(endStatus);
 
     for (int i=0;i<=8;i++)
@@ -315,7 +315,7 @@ void SudokuEntity::regenerate(int difficulty)
 
     /*生成终盘
      */
-    srand(time(0));
+    srand((int)time(0));
     resultgenerator(endStatus);
     /*将终盘复制至初盘数组，便于挖孔生成初盘
      */

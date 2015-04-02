@@ -42,7 +42,7 @@ bool GameScene::init()
     };
     
     touchListener->onTouchEnded = [=] (Touch* touch, Event* event) {
-        //CCLOG("%d %d", start_x, start_y);
+        
         auto touchPoint = touch->getLocation();
         int end_x = touchPoint.x;
         int end_y = touchPoint.y;
@@ -62,8 +62,6 @@ bool GameScene::init()
                 doDown();
             }
         }
-    
-        //CCLOG("%d %d", end_x, end_y);
     };
     
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
