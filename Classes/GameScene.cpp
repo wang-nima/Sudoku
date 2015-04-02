@@ -41,13 +41,17 @@ bool GameScene::init()
         return true;
     };
     
-    touchListener->onTouchEnded = [=] (Touch* touch, Event* event) {
+    touchListener->onTouchEnded = [=] (Touch* touch, Event* event) -> void {
         
         auto touchPoint = touch->getLocation();
         int end_x = touchPoint.x;
         int end_y = touchPoint.y;
         int dx = end_x - start_x;
         int dy = end_y - start_y;
+        
+        if (abs(dx) < 10 || abs(dy) < 10) {
+            return;
+        }
         
         if (abs(dx) > abs(dy)) {        //move left or right
             if (dx > 0) {
