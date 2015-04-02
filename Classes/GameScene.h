@@ -21,6 +21,7 @@ public:
     bool doRight();
 private:
     SudokuEntity game;
+    int start_x, start_y;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

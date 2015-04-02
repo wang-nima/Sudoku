@@ -1,6 +1,6 @@
 #include "GameScene.h"
 #include "Definitions.h"
-#include <UIButton.h>
+#include <cmath>
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -8,24 +8,14 @@ using namespace cocos2d::ui;
 
 Scene* GameScene::createScene()
 {
-    // 'scene' is an autorelease object
     auto scene = Scene::create();
-    
-    // 'layer' is an autorelease object
     auto layer = GameScene::create();
-
-    // add layer as a child to scene
     scene->addChild(layer);
-
-    // return the scene
     return scene;
 }
 
-// on "init" you need to initialize your instance
 bool GameScene::init()
 {
-    //////////////////////////////
-    // 1. super init first
     if ( !Layer::init() )
     {
         return false;
@@ -39,24 +29,49 @@ bool GameScene::init()
                                          visibleSize.height / 2 + origin.y));
     this->addChild(backGroundSprite);
     
-    
-    
     auto touchListener = EventListenerTouchOneByOne::create();
-    touchListener->onTouchBegan = [=](Touch* touch, Event* event){
-        // your code
-        doUp();
-        return true; // if you are consuming it
+    touchListener->setSwallowTouches(true);
+    
+    
+    touchListener->onTouchBegan = [&](Touch* touch, Event* event) -> bool {
+        
+        auto touchPoint = touch->getLocation();
+        start_x = touchPoint.x;
+        start_y = touchPoint.y;
+        return true;
     };
     
-    touchListener->onTouchEnded = [=](Touch* touch, Event* event){
-        // your code
+    touchListener->onTouchEnded = [=] (Touch* touch, Event* event) {
+        //CCLOG("%d %d", start_x, start_y);
+        auto touchPoint = touch->getLocation();
+        int end_x = touchPoint.x;
+        int end_y = touchPoint.y;
+        int dx = end_x - start_x;
+        int dy = end_y - start_y;
+        
+        if (abs(dx) > abs(dy)) {        //move left or right
+            if (dx > 0) {
+                doRight();
+            } else {
+                doLeft();
+            }
+        } else {    //up and down
+            if (dy > 0) {
+                doUp();
+            } else {
+                doDown();
+            }
+        }
+    
+        //CCLOG("%d %d", end_x, end_y);
     };
+    
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
     
     return true;
 }
 
 
-//滑向上下左右的方法
 bool GameScene::doUp()
 {
     log("doUp");
