@@ -10,7 +10,7 @@ using namespace cocos2d::ui;
 Scene* MainMenuScene::createScene()
 {
     auto scene = Scene::createWithPhysics();
-    scene->getPhysicsWorld()->setGravity(Vec2(100, -158));
+    scene->getPhysicsWorld()->setGravity(Vec2(0, -200));
     auto layer = MainMenuScene::create();
     layer->setPhysicsWorld(scene->getPhysicsWorld());
     scene->addChild(layer);
@@ -75,7 +75,6 @@ bool MainMenuScene::init()
     auto spriteBody = PhysicsBody::createBox( n1->getContentSize(), PhysicsMaterial( 1, 1, 0 ) );
     n1->setPhysicsBody( spriteBody );
     this->addChild(n1);
-
     return true;
 }
 
