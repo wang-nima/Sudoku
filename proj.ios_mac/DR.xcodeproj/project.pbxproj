@@ -78,6 +78,7 @@
 		DD01A4D71AB7DD66005D6559 /* Splash Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4CC1AB7DD66005D6559 /* Splash Screen.png */; };
 		DD01A4D81AB7DD66005D6559 /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = DD01A4CD1AB7DD66005D6559 /* Title.png */; };
 		DD10A8671ACBA58700435B95 /* sudokuentity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD10A8651ACBA58700435B95 /* sudokuentity.cpp */; };
+		DDA59DF21ACE3B59002E5305 /* Naughty Cartoons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDA59DF11ACE3B59002E5305 /* Naughty Cartoons.ttf */; };
 		DDF97DE81ACB6A6D00C04F20 /* Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DDF97DE71ACB6A6D00C04F20 /* Background.jpg */; };
 /* End PBXBuildFile section */
 
@@ -192,6 +193,7 @@
 		DD01A4CD1AB7DD66005D6559 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title.png; sourceTree = "<group>"; };
 		DD10A8651ACBA58700435B95 /* sudokuentity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sudokuentity.cpp; sourceTree = "<group>"; };
 		DD10A8661ACBA58700435B95 /* sudokuentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sudokuentity.h; sourceTree = "<group>"; };
+		DDA59DF11ACE3B59002E5305 /* Naughty Cartoons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Naughty Cartoons.ttf"; sourceTree = "<group>"; };
 		DDF97DE71ACB6A6D00C04F20 /* Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -308,6 +310,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DDA59DF11ACE3B59002E5305 /* Naughty Cartoons.ttf */,
 				DD01A4C41AB7DD66005D6559 /* Ball.png */,
 				DD01A4C51AB7DD66005D6559 /* Menu Button Clicked.png */,
 				DD01A4C61AB7DD66005D6559 /* Menu Button.png */,
@@ -501,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
+				DDA59DF21ACE3B59002E5305 /* Naughty Cartoons.ttf in Resources */,
 				DD01A4BD1AB7D510005D6559 /* Play Button Clicked.png in Resources */,
 				DD01A4BC1AB7D510005D6559 /* Pipe.png in Resources */,
 				DD01A4BB1AB7D510005D6559 /* Menu Button.png in Resources */,

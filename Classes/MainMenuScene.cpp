@@ -50,8 +50,8 @@ bool MainMenuScene::init()
     this->addChild(menu);
     
     
-    
-    auto ttf1 = Label::createWithSystemFont("Sudoku", "Marker Felt", 156);
+    auto ttf1 = Label::createWithTTF("Sudoku", "Naughty Cartoons.ttf", 156);
+
     
     
     ttf1->setPosition(visibleSize.width / 2, visibleSize.height / 2 + 300);

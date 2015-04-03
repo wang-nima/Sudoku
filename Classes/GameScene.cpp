@@ -16,18 +16,23 @@ Scene* GameScene::createScene()
 
 bool GameScene::init()
 {
-    if ( !Layer::init() )
-    {
+    if ( !Layer::init()) {
         return false;
     }
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    auto backGroundSprite = Sprite::create("Background.jpg");
-    backGroundSprite->setPosition( Point(visibleSize.width / 2 + origin.x,
-                                         visibleSize.height / 2 + origin.y));
-    this->addChild(backGroundSprite);
+    //auto backGroundSprite = Sprite::create("Background.jpg");
+    //backGroundSprite->setPosition( Point(visibleSize.width / 2 + origin.x,
+    //                                     visibleSize.height / 2 + origin.y));
+    //this->addChild(backGroundSprite);
+    
+    
+    auto label = Label::createWithTTF("Enjor your game!", "Naughty Cartoons.ttf", 40);
+    label->setPosition(Point(visibleSize.width / 2 + origin.x,
+                             visibleSize.height / 2 + origin.y + 100));
+    this->addChild(label);
     
     auto touchListener = EventListenerTouchOneByOne::create();
     touchListener->setSwallowTouches(true);
