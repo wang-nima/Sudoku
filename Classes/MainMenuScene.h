@@ -11,9 +11,7 @@ public:
     CREATE_FUNC(MainMenuScene);
 private:
     void GoToGameScene (cocos2d::Ref *sender);
-    void Play(Ref *pSender);
-    void Highscores(Ref *pSender);
-    void Settings(Ref *pSender);
+    bool musicPlaying = true;
 
 };
 
