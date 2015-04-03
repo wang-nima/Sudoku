@@ -30,8 +30,8 @@ bool GameScene::init()
     
     
     auto label = Label::createWithTTF("Enjor your game!", "Naughty Cartoons.ttf", 40);
-    label->setPosition(Point(visibleSize.width / 2 + origin.x,
-                             visibleSize.height / 2 + origin.y + 100));
+    label->setPosition(Point(visibleSize.width / 2,
+                             visibleSize.height - 100));
     label->setColor(Color3B::BLACK);
     this->addChild(label);
     

@@ -3,6 +3,7 @@
 #include "GameScene.h"
 #include "SimpleAudioEngine.h"
 #include "ui/CocosGUI.h"
+#include <ctime>       /* time */
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -71,6 +72,7 @@ bool MainMenuScene::init()
     edgeNode->setPhysicsBody( edgeBody );
     this->addChild( edgeNode );
     
+    srand (time(0));
     this->schedule(schedule_selector(MainMenuScene::drop), 1.0f, CC_REPEAT_FOREVER, 0);
     
     
@@ -85,13 +87,11 @@ void MainMenuScene::GoToGameScene (cocos2d::Ref *sender) {
 
 void MainMenuScene::drop(float dt)
 {
-    //CCLOG("haha");
-    int start_x_pos = CCRANDOM_0_1() * WIDTH ;
-    int number = CCRANDOM_0_1() * 8 + 1;
+    int start_x_pos = rand() % WIDTH;
+    int number = rand() % 8 + 1;
     auto number_sprite = Sprite::create(std::to_string(number) + ".png");
     number_sprite->setPosition(start_x_pos, HEIGHT - 50);
     auto spriteBody = PhysicsBody::createBox( number_sprite->getContentSize(), PhysicsMaterial( 1, 0.5, 0 ) );
     number_sprite->setPhysicsBody( spriteBody );
     this->addChild(number_sprite);
-    
 }
