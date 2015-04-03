@@ -15,13 +15,8 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(GameScene);
-    bool doUp();
-    bool doDown();
-    bool doLeft();
-    bool doRight();
 private:
     SudokuEntity game;
-    int start_x, start_y;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
