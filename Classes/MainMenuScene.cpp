@@ -10,8 +10,8 @@ using namespace cocos2d::ui;
 Scene* MainMenuScene::createScene()
 {
     auto scene = Scene::createWithPhysics();
-    //for debug, delete later 
-    scene->getPhysicsWorld()->setDebugDrawMask( PhysicsWorld::DEBUGDRAW_ALL );
+    //for debug, delete later
+    //scene->getPhysicsWorld()->setDebugDrawMask( PhysicsWorld::DEBUGDRAW_ALL );
     auto layer = MainMenuScene::create();
     layer->setPhysicsWorld(scene->getPhysicsWorld());
     scene->addChild(layer);
@@ -66,25 +66,17 @@ bool MainMenuScene::init()
     //add animation
     
     auto edgeBody = PhysicsBody::createEdgeBox( visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3 );
-    
     auto edgeNode = Node::create();
-    edgeNode ->setPosition(center);
+    edgeNode->setPosition( center );
     edgeNode->setPhysicsBody( edgeBody );
-    
     this->addChild( edgeNode );
+    
+    auto n1 = Sprite::create("6.png");
+    n1->setPosition(center);
+    auto spriteBody = PhysicsBody::createBox( n1->getContentSize(), PhysicsMaterial( 0, 1, 0 ) );
+    n1->setPhysicsBody( spriteBody );
+    this->addChild(n1);
 
-    
-    
-    auto physicsBody = PhysicsBody::createBox(Size(65.0f, 81.0f),
-                                              PhysicsMaterial(0.1f, 1.0f, 0.0f));
-    physicsBody->setDynamic(true);
-    
-    //create a sprite
-    auto sprite = Sprite::create("1.png");
-    sprite->setPosition(center);
-    physicsBody->setGravityEnable(true);
-    addChild(sprite);
-    
     return true;
 }
 
