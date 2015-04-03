@@ -342,8 +342,6 @@
 			children = (
 				DD10A8651ACBA58700435B95 /* sudokuentity.cpp */,
 				DD10A8661ACBA58700435B95 /* sudokuentity.h */,
-				DD01A49F1AB7CAE6005D6559 /* GameOverScene.cpp */,
-				DD01A4A01AB7CAE6005D6559 /* GameOverScene.h */,
 				DD01A4A11AB7CAE6005D6559 /* GameScene.cpp */,
 				DD01A4A21AB7CAE6005D6559 /* GameScene.h */,
 				DD01A4A31AB7CAE6005D6559 /* MainMenuScene.cpp */,
@@ -351,6 +349,8 @@
 				DD01A4A81AB7CC72005D6559 /* Definitions.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
+				DD01A49F1AB7CAE6005D6559 /* GameOverScene.cpp */,
+				DD01A4A01AB7CAE6005D6559 /* GameOverScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
