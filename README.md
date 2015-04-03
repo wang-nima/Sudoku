@@ -1,3 +1,3 @@
 # DirectedResearch
 
-This is the project direct by professor Mike from University of Southern California
+This is a game project directed by professor Mike.
