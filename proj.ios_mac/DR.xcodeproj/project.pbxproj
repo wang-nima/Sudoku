@@ -58,6 +58,7 @@
 		DD01A4A61AB7CAE6005D6559 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD01A4A11AB7CAE6005D6559 /* GameScene.cpp */; };
 		DD01A4A71AB7CAE6005D6559 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD01A4A31AB7CAE6005D6559 /* MainMenuScene.cpp */; };
 		DD10A8671ACBA58700435B95 /* sudokuentity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD10A8651ACBA58700435B95 /* sudokuentity.cpp */; };
+		DD13C6B81ACF1CD600E32F0E /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = DD13C6B71ACF1CD600E32F0E /* board.png */; };
 		DD79C2A41ACE576D002E90BA /* mc.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD79C2A31ACE576D002E90BA /* mc.mp3 */; };
 		DD79C2AF1ACE5D15002E90BA /* unmute.png in Resources */ = {isa = PBXBuildFile; fileRef = DD79C2AD1ACE5D15002E90BA /* unmute.png */; };
 		DD79C2B01ACE5D15002E90BA /* mute.png in Resources */ = {isa = PBXBuildFile; fileRef = DD79C2AE1ACE5D15002E90BA /* mute.png */; };
@@ -164,6 +165,7 @@
 		DD01A4A81AB7CC72005D6559 /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		DD10A8651ACBA58700435B95 /* sudokuentity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sudokuentity.cpp; sourceTree = "<group>"; };
 		DD10A8661ACBA58700435B95 /* sudokuentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sudokuentity.h; sourceTree = "<group>"; };
+		DD13C6B71ACF1CD600E32F0E /* board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = board.png; sourceTree = "<group>"; };
 		DD79C2A31ACE576D002E90BA /* mc.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mc.mp3; sourceTree = "<group>"; };
 		DD79C2AD1ACE5D15002E90BA /* unmute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unmute.png; sourceTree = "<group>"; };
 		DD79C2AE1ACE5D15002E90BA /* mute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute.png; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				DD79C2B91ACE6980002E90BA /* 3.png */,
 				DD79C2BA1ACE6980002E90BA /* 2.png */,
 				DD79C2BB1ACE6980002E90BA /* 1.png */,
+				DD13C6B71ACF1CD600E32F0E /* board.png */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -478,6 +481,7 @@
 			files = (
 				DD79C2A41ACE576D002E90BA /* mc.mp3 in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
+				DD13C6B81ACF1CD600E32F0E /* board.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				DD79C2C01ACE6980002E90BA /* 6.png in Resources */,
 				DD79C2BE1ACE6980002E90BA /* 4.png in Resources */,

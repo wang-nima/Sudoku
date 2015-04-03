@@ -27,7 +27,6 @@ bool MainMenuScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
-    CCLOG("%f %f",visibleSize.width, visibleSize.height);
     
     auto menu_item_1 = MenuItemFont::create("Play", CC_CALLBACK_1(MainMenuScene::GoToGameScene, this));
     menu_item_1->setColor(Color3B::BLACK);
