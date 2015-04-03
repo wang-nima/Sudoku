@@ -9,8 +9,11 @@ using namespace cocos2d::ui;
 
 Scene* MainMenuScene::createScene()
 {
-    auto scene = Scene::create();
+    auto scene = Scene::createWithPhysics();
+    //for debug, delete later 
+    scene->getPhysicsWorld()->setDebugDrawMask( PhysicsWorld::DEBUGDRAW_ALL );
     auto layer = MainMenuScene::create();
+    layer->setPhysicsWorld(scene->getPhysicsWorld());
     scene->addChild(layer);
     return scene;
 }
@@ -23,14 +26,14 @@ bool MainMenuScene::init()
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
     
     auto menu_item_1 = MenuItemFont::create("Play", CC_CALLBACK_1(MainMenuScene::GoToGameScene, this));
     menu_item_1->setColor(Color3B::BLACK);
     menu_item_1->setFontSize(100);
     
     auto menu = Menu::create(menu_item_1, nullptr);
-    menu->setPosition( Point(visibleSize.width / 2,
-                             visibleSize.height / 2) );
+    menu->setPosition(center);
     this->addChild(menu);
     
     auto title = Label::createWithTTF("Sudoku", "Naughty Cartoons.ttf", 156);
@@ -60,6 +63,27 @@ bool MainMenuScene::init()
     });
     this->addChild(mute);
     
+    //add animation
+    
+    auto edgeBody = PhysicsBody::createEdgeBox( visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3 );
+    
+    auto edgeNode = Node::create();
+    edgeNode ->setPosition(center);
+    edgeNode->setPhysicsBody( edgeBody );
+    
+    this->addChild( edgeNode );
+
+    
+    
+    auto physicsBody = PhysicsBody::createBox(Size(65.0f, 81.0f),
+                                              PhysicsMaterial(0.1f, 1.0f, 0.0f));
+    physicsBody->setDynamic(true);
+    
+    //create a sprite
+    auto sprite = Sprite::create("1.png");
+    sprite->setPosition(center);
+    physicsBody->setGravityEnable(true);
+    addChild(sprite);
     
     return true;
 }

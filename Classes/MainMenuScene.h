@@ -12,7 +12,10 @@ public:
 private:
     void GoToGameScene (cocos2d::Ref *sender);
     bool musicPlaying = true;
-
+    cocos2d::PhysicsWorld *world;
+    void setPhysicsWorld(cocos2d::PhysicsWorld *world) {
+        this->world = world;
+    }
 };
 
 #endif 
