@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "sudokuentity.h"
 
-class GameScene: public cocos2d::Layer
+class GameScene: public cocos2d::LayerColor
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
