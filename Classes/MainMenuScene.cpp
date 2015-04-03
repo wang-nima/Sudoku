@@ -79,6 +79,7 @@ bool MainMenuScene::init()
 
 void MainMenuScene::GoToGameScene (cocos2d::Ref *sender) {
     auto scene = GameScene::createScene();
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     Director::getInstance()->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
 }
 
