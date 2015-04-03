@@ -16,6 +16,7 @@ private:
     void setPhysicsWorld(cocos2d::PhysicsWorld *world) {
         this->world = world;
     }
+    void drop(float dt);
 };
 
 #endif 

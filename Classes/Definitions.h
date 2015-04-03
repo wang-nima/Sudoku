@@ -19,6 +19,9 @@
 
 #define PIPE_MOVEMENT_SPEED 0.01
 
+#define WIDTH 2048
+#define HEIGHT 1536
+
 
 
 #endif

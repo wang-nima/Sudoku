@@ -26,6 +26,7 @@ bool MainMenuScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
+    CCLOG("%f %f",visibleSize.width, visibleSize.height);
     
     auto menu_item_1 = MenuItemFont::create("Play", CC_CALLBACK_1(MainMenuScene::GoToGameScene, this));
     menu_item_1->setColor(Color3B::BLACK);
@@ -70,15 +71,26 @@ bool MainMenuScene::init()
     edgeNode->setPhysicsBody( edgeBody );
     this->addChild( edgeNode );
     
-    auto n1 = Sprite::create("6.png");
-    n1->setPosition(visibleSize.width / 3, visibleSize.height);
-    auto spriteBody = PhysicsBody::createBox( n1->getContentSize(), PhysicsMaterial( 1, 1, 0 ) );
-    n1->setPhysicsBody( spriteBody );
-    this->addChild(n1);
+    this->schedule(schedule_selector(MainMenuScene::drop), 1.0f, CC_REPEAT_FOREVER, 0);
+    
+    
     return true;
 }
 
 void MainMenuScene::GoToGameScene (cocos2d::Ref *sender) {
     auto scene = GameScene::createScene();
     Director::getInstance()->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
+}
+
+void MainMenuScene::drop(float dt)
+{
+    //CCLOG("haha");
+    int start_x_pos = CCRANDOM_0_1() * WIDTH ;
+    int number = CCRANDOM_0_1() * 8 + 1;
+    auto number_sprite = Sprite::create(std::to_string(number) + ".png");
+    number_sprite->setPosition(start_x_pos, HEIGHT - 50);
+    auto spriteBody = PhysicsBody::createBox( number_sprite->getContentSize(), PhysicsMaterial( 1, 0.5, 0 ) );
+    number_sprite->setPhysicsBody( spriteBody );
+    this->addChild(number_sprite);
+    
 }
