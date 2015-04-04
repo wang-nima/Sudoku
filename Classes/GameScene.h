@@ -4,6 +4,8 @@
 #include "cocos2d.h"
 #include "sudokuentity.h"
 
+using namespace cocos2d;
+
 class GameScene: public cocos2d::LayerColor
 {
 public:
@@ -18,6 +20,9 @@ public:
 private:
     SudokuEntity game;
     int state[9][9];
+    //Sprite * selSprite;
+    std::vector<Sprite*> v;
+    void selectSpriteForTouch(Point touchLocation);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

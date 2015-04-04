@@ -74,7 +74,6 @@ bool MainMenuScene::init()
     srand (time(0));
     this->schedule(schedule_selector(MainMenuScene::drop), 1.0f, CC_REPEAT_FOREVER, 0);
     
-    
     return true;
 }
 

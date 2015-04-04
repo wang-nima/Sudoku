@@ -1,6 +1,7 @@
 #include "GameScene.h"
 #include "Definitions.h"
 #include <cmath>
+#include <vector>
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -30,10 +31,13 @@ bool GameScene::init()
     label->setColor(Color3B::BLACK);
     this->addChild(label);
     
+    //selSprite = nullptr;
     
     auto touchListener = EventListenerTouchOneByOne::create();
     touchListener->setSwallowTouches(true);
     touchListener->onTouchBegan = [&](Touch* touch, Event* event) -> bool {
+        Point touchPosition = touch->getLocation();
+        selectSpriteForTouch(touchPosition);
         return true;
     };
     touchListener->onTouchEnded = [=] (Touch* touch, Event* event) -> void {
@@ -72,8 +76,21 @@ bool GameScene::init()
         }
     }
     
-    
-    
+    for (int i = 1; i <= 9 ; i++) {
+        auto numberSprite = Sprite::create(std::to_string(i) + ".png");
+        numberSprite->setPosition(boardTopLeft.x / 2,
+                                  visibleSize.height - visibleSize.height / 10 * i);
+        this->addChild(numberSprite);
+        v.push_back(numberSprite);
+    }
     
     return true;
+}
+
+void GameScene::selectSpriteForTouch(Point p) {
+    for (int i = 0; i < v.size(); i++) {
+        if (v[i]->getBoundingBox().containsPoint(p)) {
+            log("%d touched", i + 1);
+        }
+    }
 }
