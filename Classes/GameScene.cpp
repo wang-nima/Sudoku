@@ -48,12 +48,22 @@ bool GameScene::init()
     this->addChild(board);
     
     auto boardSize = board->getContentSize();
-    //CCLOG("%f %f", boardSize.height, boardSize.width);
     auto boardPosition = board->getPosition();
-    //CCLOG("%f %f", boardPosition.x, boardPosition.y);
     Point boardTopLeft(boardPosition.x - boardSize.width / 2,
                        boardPosition.y + boardSize.height / 2);
     int cellLength = boardSize.height / 9;
+    
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            int temp = game.startStatus[i][j];
+            if (temp != 0) {
+                auto fixedCell = Sprite::create(std::to_string(temp) + ".png");
+                fixedCell->setAnchorPoint(Vec2(0, 1));
+                fixedCell->setPosition(boardTopLeft.x + j * cellLength, boardTopLeft.y - i * cellLength);
+                this->addChild(fixedCell);
+            }
+        }
+    }
     
     
     
