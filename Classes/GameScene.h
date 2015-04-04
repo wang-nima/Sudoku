@@ -20,9 +20,11 @@ public:
 private:
     SudokuEntity game;
     int state[9][9];
-    //Sprite * selSprite;
+    Sprite * movingSprite;
     std::vector<Sprite*> v;
+    int movingNumber;
     void selectSpriteForTouch(Point touchLocation);
+    void updateMovingSpritePosition(Vec2 p);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

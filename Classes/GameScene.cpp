@@ -31,7 +31,7 @@ bool GameScene::init()
     label->setColor(Color3B::BLACK);
     this->addChild(label);
     
-    //selSprite = nullptr;
+    movingSprite = nullptr;
     
     auto touchListener = EventListenerTouchOneByOne::create();
     touchListener->setSwallowTouches(true);
@@ -40,7 +40,14 @@ bool GameScene::init()
         selectSpriteForTouch(touchPosition);
         return true;
     };
-    touchListener->onTouchEnded = [=] (Touch* touch, Event* event) -> void {
+    touchListener->onTouchMoved = [&] (Touch* touch, Event* event) -> void {
+        Point touchLocation = touch->getLocation();
+        Point oldTouchLocation = touch->getPreviousLocation();
+        Vec2 translation = touchLocation - oldTouchLocation;
+        this->updateMovingSpritePosition(translation);
+    };
+    touchListener->onTouchEnded = [&] (Touch* touch, Event* event) -> void {
+        movingSprite = nullptr;
     };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
     
@@ -90,7 +97,16 @@ bool GameScene::init()
 void GameScene::selectSpriteForTouch(Point p) {
     for (int i = 0; i < v.size(); i++) {
         if (v[i]->getBoundingBox().containsPoint(p)) {
-            log("%d touched", i + 1);
+            movingNumber = i + 1;
+            movingSprite = v[i];
+            //log("%d touched", i + 1);
         }
+    }
+}
+
+void GameScene::updateMovingSpritePosition(Vec2 p) {
+    if (movingSprite != nullptr) {
+        Point oldPosition = movingSprite->getPosition();
+        movingSprite->setPosition(oldPosition + p);
     }
 }
