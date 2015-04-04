@@ -58,8 +58,9 @@ bool GameScene::init()
             int temp = game.startStatus[i][j];
             if (temp != 0) {
                 auto fixedCell = Sprite::create(std::to_string(temp) + ".png");
-                fixedCell->setAnchorPoint(Vec2(0, 1));
-                fixedCell->setPosition(boardTopLeft.x + j * cellLength, boardTopLeft.y - i * cellLength);
+                fixedCell->setAnchorPoint(Vec2(0.5, 0.5));
+                fixedCell->setPosition(boardTopLeft.x + ( j + 0.5 ) * cellLength,
+                                       boardTopLeft.y - ( i + 0.5 ) * cellLength);
                 this->addChild(fixedCell);
             }
         }
