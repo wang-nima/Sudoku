@@ -57,7 +57,8 @@ bool GameScene::init()
         for (int j = 0; j < 9; j++) {
             int temp = game.startStatus[i][j];
             if (temp != 0) {
-                auto fixedCell = Sprite::create(std::to_string(temp) + ".png");
+                auto fixedCell = Label::createWithTTF(std::to_string(temp), "squarefont.ttf", 50);
+                fixedCell->setColor(Color3B::BLACK);
                 fixedCell->setAnchorPoint(Vec2(0.5, 0.5));
                 fixedCell->setPosition(boardTopLeft.x + ( j + 0.5 ) * cellLength,
                                        boardTopLeft.y - ( i + 0.5 ) * cellLength);

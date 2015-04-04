@@ -71,6 +71,7 @@
 		DD79C2C21ACE6980002E90BA /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = DD79C2B91ACE6980002E90BA /* 3.png */; };
 		DD79C2C31ACE6980002E90BA /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = DD79C2BA1ACE6980002E90BA /* 2.png */; };
 		DD79C2C41ACE6980002E90BA /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = DD79C2BB1ACE6980002E90BA /* 1.png */; };
+		DD7EA34C1AD07DB10063EDC3 /* squarefont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD7EA34B1AD07DB10063EDC3 /* squarefont.ttf */; };
 		DDF97DE81ACB6A6D00C04F20 /* Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DDF97DE71ACB6A6D00C04F20 /* Background.jpg */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +179,7 @@
 		DD79C2B91ACE6980002E90BA /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		DD79C2BA1ACE6980002E90BA /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		DD79C2BB1ACE6980002E90BA /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		DD7EA34B1AD07DB10063EDC3 /* squarefont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = squarefont.ttf; sourceTree = "<group>"; };
 		DDF97DE71ACB6A6D00C04F20 /* Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -294,6 +296,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DD7EA34B1AD07DB10063EDC3 /* squarefont.ttf */,
 				DDF97DE71ACB6A6D00C04F20 /* Background.jpg */,
 				DD79C2AD1ACE5D15002E90BA /* unmute.png */,
 				DD79C2AE1ACE5D15002E90BA /* mute.png */,
@@ -506,6 +509,7 @@
 				DD79C2BC1ACE6980002E90BA /* 7.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
+				DD7EA34C1AD07DB10063EDC3 /* squarefont.ttf in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
