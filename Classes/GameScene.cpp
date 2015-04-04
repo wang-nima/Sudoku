@@ -24,7 +24,7 @@ bool GameScene::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
     
-    auto label = Label::createWithTTF("Enjor your game!", "Naughty Cartoons.ttf", 40);
+    auto label = Label::createWithTTF("Enjor your Sudoku!", "Naughty Cartoons.ttf", 40);
     label->setPosition(Point(visibleSize.width / 2,
                              visibleSize.height - 100));
     label->setColor(Color3B::BLACK);
