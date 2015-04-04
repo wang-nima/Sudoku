@@ -17,6 +17,7 @@ public:
     CREATE_FUNC(GameScene);
 private:
     SudokuEntity game;
+    int state[9][9];
 };
 
 #endif // __HELLOWORLD_SCENE_H__

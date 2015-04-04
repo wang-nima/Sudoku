@@ -41,6 +41,11 @@ bool GameScene::init()
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
     
     game.regenerate(2);
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            state[i][j] = game.startStatus[i][j];
+        }
+    }
     
     //add game board
     auto board = Sprite::create("board.png");
