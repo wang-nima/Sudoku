@@ -11,26 +11,32 @@ using namespace std;
 class GameScene: public cocos2d::LayerColor
 {
 public:
-    // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
-
-    // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
-    
-    // implement the "static create()" method manually
     CREATE_FUNC(GameScene);
 private:
     SudokuEntity game;
+    
     int state[9][9];
+    
     numberSprite *movingSprite;
-    vector<numberSprite*> v;
+    
+    vector<numberSprite*> moveAbleCell;
+    
     vector<Point> initPosition;
+    
     Point boardTopLeft;
+    
     int cellLength;
+    
     Sprite *board;
+    
     void selectSpriteForTouch(Point touchLocation);
+    
     void updateMovingSpritePosition(Vec2 p);
+    
     void adjustPosition(Point locationBeforeAdjust);
+    
     void addNewNumberCell();
 };
 

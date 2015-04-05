@@ -17,6 +17,7 @@ Scene* GameScene::createScene()
 
 bool GameScene::init()
 {
+// make background white
     if ( !LayerColor::initWithColor(Color4B::WHITE)) {
         return false;
     }
@@ -52,7 +53,8 @@ bool GameScene::init()
     boardTopLeft.x = boardPosition.x - boardSize.width / 2;
     boardTopLeft.y = boardPosition.y + boardSize.height / 2;
     cellLength = boardSize.height / 9;
-    
+
+// add number in fix cell
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             int temp = game.startStatus[i][j];
@@ -67,6 +69,7 @@ bool GameScene::init()
         }
     }
     
+// create candidate number cell
     for (int i = 1; i <= 9 ; i++) {
         numberSprite *numberCell = numberSprite::create(std::to_string(i) + ".png");
         numberCell->num = i;
@@ -75,7 +78,7 @@ bool GameScene::init()
                                      visibleSize.height - visibleSize.height / 10 * i));
         numberCell->setPosition(initPosition[i-1]);
         this->addChild(numberCell);
-        v.push_back(numberCell);
+        moveAbleCell.push_back(numberCell);
     }
     
 // set up touch event listener using lambda, c++11 feature
@@ -103,10 +106,11 @@ bool GameScene::init()
     return true;
 }
 
+// for onTouchBegan method, set movingSprite
 void GameScene::selectSpriteForTouch(Point p) {
-    for (int i = 0; i < v.size(); i++) {
-        if (v[i]->getBoundingBox().containsPoint(p)) {
-            movingSprite = v[i];
+    for (int i = 0; i < moveAbleCell.size(); i++) {
+        if (moveAbleCell[i]->getBoundingBox().containsPoint(p)) {
+            movingSprite = moveAbleCell[i];
         }
     }
 }
@@ -130,6 +134,7 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
             int new_x = ( row_count_x + 0.5 ) * cellLength + top_left_x;
             int new_y = top_left_y - ( row_count_y + 0.5 ) * cellLength;
             state[row_count_y][row_count_x] = movingSprite->num;
+            movingSprite->inBoard = true;
             auto action = MoveTo::create(0.2, Point(new_x, new_y));
             movingSprite->runAction(action);
             return;
