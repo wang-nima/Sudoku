@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "sudokuentity.h"
+#include "numberSprite.h"
 
 using namespace cocos2d;
 
@@ -20,9 +21,8 @@ public:
 private:
     SudokuEntity game;
     int state[9][9];
-    Sprite * movingSprite;
-    std::vector<Sprite*> v;
-    int movingNumber;
+    numberSprite *movingSprite;
+    std::vector<numberSprite*> v;
     void selectSpriteForTouch(Point touchLocation);
     void updateMovingSpritePosition(Vec2 p);
 };

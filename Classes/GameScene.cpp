@@ -48,6 +48,8 @@ bool GameScene::init()
     };
     touchListener->onTouchEnded = [&] (Touch* touch, Event* event) -> void {
         movingSprite = nullptr;
+        //Point endPosition = touch
+        
     };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
     
@@ -84,22 +86,21 @@ bool GameScene::init()
     }
     
     for (int i = 1; i <= 9 ; i++) {
-        auto numberSprite = Sprite::create(std::to_string(i) + ".png");
-        numberSprite->setPosition(boardTopLeft.x / 2,
-                                  visibleSize.height - visibleSize.height / 10 * i);
-        this->addChild(numberSprite);
-        v.push_back(numberSprite);
+        numberSprite *numberCell = numberSprite::create(std::to_string(i) + ".png");
+        numberCell->num = i;
+        numberCell->inBoard = false;
+        numberCell->setPosition(boardTopLeft.x / 2,
+                                visibleSize.height - visibleSize.height / 10 * i);
+        this->addChild(numberCell);
+        v.push_back(numberCell);
     }
-    
     return true;
 }
 
 void GameScene::selectSpriteForTouch(Point p) {
     for (int i = 0; i < v.size(); i++) {
         if (v[i]->getBoundingBox().containsPoint(p)) {
-            movingNumber = i + 1;
             movingSprite = v[i];
-            //log("%d touched", i + 1);
         }
     }
 }

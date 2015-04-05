@@ -72,6 +72,7 @@
 		DD79C2C31ACE6980002E90BA /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = DD79C2BA1ACE6980002E90BA /* 2.png */; };
 		DD79C2C41ACE6980002E90BA /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = DD79C2BB1ACE6980002E90BA /* 1.png */; };
 		DD7EA34C1AD07DB10063EDC3 /* squarefont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD7EA34B1AD07DB10063EDC3 /* squarefont.ttf */; };
+		DD7EA3521AD0B7AD0063EDC3 /* numberSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD7EA3511AD0B7AD0063EDC3 /* numberSprite.cpp */; };
 		DDF97DE81ACB6A6D00C04F20 /* Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DDF97DE71ACB6A6D00C04F20 /* Background.jpg */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +181,8 @@
 		DD79C2BA1ACE6980002E90BA /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		DD79C2BB1ACE6980002E90BA /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		DD7EA34B1AD07DB10063EDC3 /* squarefont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = squarefont.ttf; sourceTree = "<group>"; };
+		DD7EA3501AD0B7AD0063EDC3 /* numberSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = numberSprite.h; sourceTree = "<group>"; };
+		DD7EA3511AD0B7AD0063EDC3 /* numberSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = numberSprite.cpp; sourceTree = "<group>"; };
 		DDF97DE71ACB6A6D00C04F20 /* Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -319,6 +322,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DD7EA3501AD0B7AD0063EDC3 /* numberSprite.h */,
+				DD7EA3511AD0B7AD0063EDC3 /* numberSprite.cpp */,
 				DD10A8651ACBA58700435B95 /* sudokuentity.cpp */,
 				DD10A8661ACBA58700435B95 /* sudokuentity.h */,
 				DD01A4A11AB7CAE6005D6559 /* GameScene.cpp */,
@@ -535,6 +540,7 @@
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				DD01A4A71AB7CAE6005D6559 /* MainMenuScene.cpp in Sources */,
+				DD7EA3521AD0B7AD0063EDC3 /* numberSprite.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				DD01A4A61AB7CAE6005D6559 /* GameScene.cpp in Sources */,
