@@ -130,10 +130,8 @@ void GameScene::selectSpriteForTouch(Point p) {
 
 // for onTouchMoved
 void GameScene::updateMovingSpritePosition(Vec2 p) {
-    if (movingSprite != nullptr) {
-        Point oldPosition = movingSprite->getPosition();
-        movingSprite->setPosition(oldPosition + p);
-    }
+    Point oldPosition = movingSprite->getPosition();
+    movingSprite->setPosition(oldPosition + p);
 }
 
 // for onTouchEnd
