@@ -40,12 +40,18 @@ bool MainMenuScene::init()
     title->setColor(Color3B::BLACK);
     this->addChild(title);
     
+// music related code
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("mc.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("mc.mp3", true);
+    
     
     auto mute = Button::create("mute.png");
     mute->setPosition( Point(visibleSize.width - 100,
                              100) );
+// protect the button not block by number rain
+    auto buttonEdge = PhysicsBody::createEdgeBox(mute->getVirtualRendererSize());
+    mute->setPhysicsBody(buttonEdge);
+    
     mute->addTouchEventListener([=](Ref* sender, Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::BEGAN) {
             if (musicPlaying) {
@@ -62,7 +68,7 @@ bool MainMenuScene::init()
     });
     this->addChild(mute);
     
-    //add animation
+// add animation, create bounding box
     
     auto edgeBody = PhysicsBody::createEdgeBox( visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3 );
     auto edgeNode = Node::create();
