@@ -80,6 +80,7 @@ bool MainMenuScene::init()
 // protect replay button
     replayEdge = PhysicsBody::createEdgeBox(Size(replay->getVirtualRendererSize().width + 30,
                                                  replay->getVirtualRendererSize().height + 30));
+// intentally increase ref count, when set nullptr will not be freed
     replayEdge->retain();
     replay->setPhysicsBody(replayEdge);
     
@@ -96,6 +97,30 @@ bool MainMenuScene::init()
     
     srand ((unsigned int)time(0));
     this->schedule(schedule_selector(MainMenuScene::drop), 1.0f, CC_REPEAT_FOREVER, 0);
+
+// handle touch for number cell
+// set up touch event listener using lambda expression, c++11 feature
+    auto touchListener = EventListenerTouchOneByOne::create();
+    touchListener->setSwallowTouches(true);
+    touchListener->onTouchBegan = [&](Touch* touch, Event* event) -> bool {
+        Point touchPosition = touch->getLocation();
+        selectSpriteForTouch(touchPosition);
+        return true;
+    };
+    touchListener->onTouchMoved = [&] (Touch* touch, Event* event) -> void {
+        if (movingSprite) {
+            Point touchLocation = touch->getLocation();
+            Point oldTouchLocation = touch->getPreviousLocation();
+            Vec2 translation = touchLocation - oldTouchLocation;
+            this->updateMovingSpritePosition(translation);
+        }
+    };
+    touchListener->onTouchEnded = [&] (Touch* touch, Event* event) -> void {
+        if (movingSprite) {
+            movingSprite = nullptr;
+        }
+    };
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
     
     return true;
 }
@@ -106,6 +131,7 @@ void MainMenuScene::GoToGameScene (cocos2d::Ref *sender) {
     Director::getInstance()->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
 }
 
+// random drop number cell
 void MainMenuScene::drop(float dt)
 {
     int start_x_pos = rand() % WIDTH;
@@ -114,11 +140,30 @@ void MainMenuScene::drop(float dt)
     number_sprite->setPosition(start_x_pos, HEIGHT - 50);
     auto spriteBody = PhysicsBody::createBox( number_sprite->getContentSize(), PhysicsMaterial( 1, 0.5, 0 ) );
     number_sprite->setPhysicsBody( spriteBody );
+    cells.insert(number_sprite);
     this->addChild(number_sprite);
 }
 
+// called when replay button pressed
 void MainMenuScene::resetEdge(float dt) {
     replay->setPhysicsBody(replayEdge);
     mute->setPhysicsBody(buttonEdge);
     edgeNode->setPhysicsBody(edgeBody);
+    cells.clear();
+}
+
+// for onTouchBegan method, set movingSprite
+void MainMenuScene::selectSpriteForTouch(Point p) {
+    for (auto it = cells.begin(); it != cells.end(); ++it) {
+        if ((*it)->getBoundingBox().containsPoint(p)) {
+            movingSprite = *it;
+            break;
+        }
+    }
+}
+
+// for onTouchMoved
+void MainMenuScene::updateMovingSpritePosition(Vec2 p) {
+    Point oldPosition = movingSprite->getPosition();
+    movingSprite->setPosition(oldPosition + p);
 }
