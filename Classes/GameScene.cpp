@@ -42,7 +42,7 @@ bool GameScene::init()
     }
     
 // add game board
-    auto board = Sprite::create("board.png");
+    board = Sprite::create("board.png");
     board->setPosition(center);
     this->addChild(board);
     
@@ -119,15 +119,21 @@ void GameScene::updateMovingSpritePosition(Vec2 p) {
 }
 
 void GameScene::adjustPosition(Point locationBeforeAdjust) {
-    int x = locationBeforeAdjust.x;
-    int y = locationBeforeAdjust.y;
-    int top_left_x = boardTopLeft.x;
-    int top_left_y = boardTopLeft.y;
-    int new_x = ( (x - top_left_x) / cellLength + 0.5 ) * cellLength + top_left_x;
-    int new_y = top_left_y - ( (top_left_y - y) / cellLength + 0.5 ) * cellLength;
-    //CCLOG("%d %d", x, y);
-    //CCLOG("%d %d", boardTopLeft.x, boardTopLeft.y);
-    //CCLOG("%d %d", top_left_x, top_left_y);
-    //CCLOG("adjust function %d %d", new_x, new_y);
-    movingSprite->setPosition(Point(new_x, new_y));
+    if (board->getBoundingBox().containsPoint(locationBeforeAdjust)) {
+        int x = locationBeforeAdjust.x;
+        int y = locationBeforeAdjust.y;
+        int top_left_x = boardTopLeft.x;
+        int top_left_y = boardTopLeft.y;
+        int row_count_x = ( x - top_left_x ) / cellLength;
+        int row_count_y = ( top_left_y - y ) / cellLength;
+        if (state[row_count_y][row_count_x] == 0) {
+            int new_x = ( row_count_x + 0.5 ) * cellLength + top_left_x;
+            int new_y = top_left_y - ( row_count_y + 0.5 ) * cellLength;
+            state[row_count_y][row_count_x] = movingSprite->num;
+            movingSprite->setPosition(Point(new_x, new_y));
+            return;
+        }
+    }
+    int num = movingSprite->num;
+    movingSprite->setPosition(initPosition[num-1]);
 }

@@ -27,6 +27,7 @@ private:
     vector<Point> initPosition;
     Point boardTopLeft;
     int cellLength;
+    Sprite *board;
     void selectSpriteForTouch(Point touchLocation);
     void updateMovingSpritePosition(Vec2 p);
     void adjustPosition(Point locationBeforeAdjust);
