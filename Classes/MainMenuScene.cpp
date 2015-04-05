@@ -45,7 +45,7 @@ bool MainMenuScene::init()
     mute->setPosition( Point(visibleSize.width - 100, 100) );
 // protect the button not block by number rain
     buttonEdge = PhysicsBody::createEdgeBox(Size(mute->getVirtualRendererSize().width + 30,
-                                                      mute->getVirtualRendererSize().height + 30));
+                                                 mute->getVirtualRendererSize().height + 30));
     mute->setPhysicsBody(buttonEdge);
     
     mute->addTouchEventListener([=](Ref* sender, Widget::TouchEventType type){
@@ -77,7 +77,7 @@ bool MainMenuScene::init()
     
 // protect replay button
     replayEdge = PhysicsBody::createEdgeBox(Size(replay->getVirtualRendererSize().width + 30,
-                                                      replay->getVirtualRendererSize().height + 30));
+                                                 replay->getVirtualRendererSize().height + 30));
     replay->setPhysicsBody(replayEdge);
     
     replay->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
@@ -85,14 +85,13 @@ bool MainMenuScene::init()
         edgeNode->setPhysicsBody(nullptr);
         replay->setPhysicsBody(nullptr);
         mute->setPhysicsBody(nullptr);
-        //this->schedule(schedule_selector(MainMenuScene::drop), 1.0f, CC_REPEAT_FOREVER, 0);
+        this->schedule(schedule_selector(MainMenuScene::drop), 1.0f, CC_REPEAT_FOREVER, 0);
     });
     this->addChild(replay);
     
 // add animation, create bounding box
     
-    
-    srand (time(0));
+    srand ((unsigned int)time(0));
     this->schedule(schedule_selector(MainMenuScene::drop), 1.0f, CC_REPEAT_FOREVER, 0);
     
     return true;
