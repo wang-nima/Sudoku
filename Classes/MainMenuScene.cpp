@@ -1,12 +1,8 @@
 #include "MainMenuScene.h"
 #include "Definitions.h"
 #include "GameScene.h"
-#include "SimpleAudioEngine.h"
-#include "ui/CocosGUI.h"
-#include <ctime>       /* time */
 
 USING_NS_CC;
-using namespace cocos2d::ui;
 
 Scene* MainMenuScene::createScene()
 {
@@ -45,10 +41,10 @@ bool MainMenuScene::init()
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("mc.mp3", true);
     
     
-    auto mute = Button::create("mute.png");
+    mute = Button::create("mute.png");
     mute->setPosition( Point(visibleSize.width - 100, 100) );
 // protect the button not block by number rain
-    auto buttonEdge = PhysicsBody::createEdgeBox(Size(mute->getVirtualRendererSize().width + 30,
+    buttonEdge = PhysicsBody::createEdgeBox(Size(mute->getVirtualRendererSize().width + 30,
                                                       mute->getVirtualRendererSize().height + 30));
     mute->setPhysicsBody(buttonEdge);
     
@@ -69,18 +65,18 @@ bool MainMenuScene::init()
     this->addChild(mute);
     
 // set the bounding box for the hole screen
-    auto edgeBody = PhysicsBody::createEdgeBox( visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3 );
-    auto edgeNode = Node::create();
+    edgeBody = PhysicsBody::createEdgeBox( visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3 );
+    edgeNode = Node::create();
     edgeNode->setPosition( center );
     edgeNode->setPhysicsBody( edgeBody );
     this->addChild( edgeNode );
     
 // refresh number rain
-    auto replay = Button::create("replay.png");
+    replay = Button::create("replay.png");
     replay->setPosition( Point(visibleSize.width - 100, 250) );
     
 // protect replay button
-    auto replayEdge = PhysicsBody::createEdgeBox(Size(replay->getVirtualRendererSize().width + 30,
+    replayEdge = PhysicsBody::createEdgeBox(Size(replay->getVirtualRendererSize().width + 30,
                                                       replay->getVirtualRendererSize().height + 30));
     replay->setPhysicsBody(replayEdge);
     

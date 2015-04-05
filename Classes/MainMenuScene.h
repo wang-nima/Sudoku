@@ -3,6 +3,11 @@
 
 #include "cocos2d.h"
 #include <unordered_set>
+#include "SimpleAudioEngine.h"
+#include "ui/CocosGUI.h"
+#include <ctime>       /* time */
+using namespace cocos2d;
+using namespace cocos2d::ui;
 
 class MainMenuScene: public cocos2d::LayerColor
 {
@@ -18,6 +23,13 @@ private:
         this->world = world;
     }
     void drop(float dt);
+    void resetEdge();
+    PhysicsBody *edgeBody;
+    Node *edgeNode;
+    Button *replay;
+    PhysicsBody *replayEdge;
+    Button *mute;
+    PhysicsBody *buttonEdge;
 };
 
 #endif 
