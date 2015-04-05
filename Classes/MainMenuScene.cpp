@@ -46,6 +46,7 @@ bool MainMenuScene::init()
 // protect the button not block by number rain
     buttonEdge = PhysicsBody::createEdgeBox(Size(mute->getVirtualRendererSize().width + 30,
                                                  mute->getVirtualRendererSize().height + 30));
+    buttonEdge->retain();
     mute->setPhysicsBody(buttonEdge);
     
     mute->addTouchEventListener([=](Ref* sender, Widget::TouchEventType type){
@@ -66,6 +67,7 @@ bool MainMenuScene::init()
     
 // set the bounding box for the hole screen
     edgeBody = PhysicsBody::createEdgeBox( visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3 );
+    edgeBody->retain();
     edgeNode = Node::create();
     edgeNode->setPosition( center );
     edgeNode->setPhysicsBody( edgeBody );
@@ -78,6 +80,7 @@ bool MainMenuScene::init()
 // protect replay button
     replayEdge = PhysicsBody::createEdgeBox(Size(replay->getVirtualRendererSize().width + 30,
                                                  replay->getVirtualRendererSize().height + 30));
+    replayEdge->retain();
     replay->setPhysicsBody(replayEdge);
     
     replay->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
@@ -85,7 +88,7 @@ bool MainMenuScene::init()
         edgeNode->setPhysicsBody(nullptr);
         replay->setPhysicsBody(nullptr);
         mute->setPhysicsBody(nullptr);
-        this->schedule(schedule_selector(MainMenuScene::drop), 1.0f, CC_REPEAT_FOREVER, 0);
+        this->schedule(schedule_selector(MainMenuScene::resetEdge), 1.0f, 0, 6);
     });
     this->addChild(replay);
     
@@ -112,4 +115,10 @@ void MainMenuScene::drop(float dt)
     auto spriteBody = PhysicsBody::createBox( number_sprite->getContentSize(), PhysicsMaterial( 1, 0.5, 0 ) );
     number_sprite->setPhysicsBody( spriteBody );
     this->addChild(number_sprite);
+}
+
+void MainMenuScene::resetEdge(float dt) {
+    replay->setPhysicsBody(replayEdge);
+    mute->setPhysicsBody(buttonEdge);
+    edgeNode->setPhysicsBody(edgeBody);
 }

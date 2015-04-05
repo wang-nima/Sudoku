@@ -23,7 +23,7 @@ private:
         this->world = world;
     }
     void drop(float dt);
-    void resetEdge();
+    void resetEdge(float dt);
     PhysicsBody *edgeBody;
     Node *edgeNode;
     Button *replay;
