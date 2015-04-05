@@ -1,5 +1,7 @@
 #include "GameScene.h"
 #include "Definitions.h"
+#include "SimpleAudioEngine.h"
+#include "ui/CocosGUI.h"
 #include <cmath>
 #include <vector>
 
@@ -39,6 +41,7 @@ bool GameScene::init()
             state[i][j] = game.startStatus[i][j];
         }
     }
+    musicPlaying = true;
     
 // add game board
     board = Sprite::create("board.png");
@@ -114,6 +117,26 @@ bool GameScene::init()
         }
     };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
+    
+    
+    auto mute = Button::create("mute.png");
+    mute->setPosition( Point(visibleSize.width - 100,
+                             100) );
+    mute->addTouchEventListener([=](Ref* sender, Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::BEGAN) {
+            if (musicPlaying) {
+                CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+                mute->loadTextureNormal("unmute.png");
+                musicPlaying = false;
+            } else {
+                CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+                mute->loadTextureNormal("mute.png");
+                musicPlaying = true;
+            }
+        }
+        
+    });
+    this->addChild(mute);
     
     return true;
 }

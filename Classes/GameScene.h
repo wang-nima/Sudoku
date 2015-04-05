@@ -47,6 +47,8 @@ private:
     bool checkGameBoard();
     
     Label *label;
+    
+    bool musicPlaying;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

@@ -41,7 +41,7 @@ bool MainMenuScene::init()
     this->addChild(title);
     
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("mc.mp3");
-    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("mc.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("mc.mp3", true);
     
     auto mute = Button::create("mute.png");
     mute->setPosition( Point(visibleSize.width - 100,
@@ -78,7 +78,7 @@ bool MainMenuScene::init()
 
 void MainMenuScene::GoToGameScene (cocos2d::Ref *sender) {
     auto scene = GameScene::createScene();
-    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    //CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     Director::getInstance()->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
 }
 
