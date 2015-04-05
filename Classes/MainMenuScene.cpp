@@ -36,6 +36,10 @@ bool MainMenuScene::init()
     title->setColor(Color3B::BLACK);
     this->addChild(title);
     
+
+    spriteBody = PhysicsBody::createBox( Sprite::create("1.png")->getContentSize(), PhysicsMaterial( 1, 0.5, 0 ) );
+    spriteBody->retain();
+    
 // music related code
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("mc.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("mc.mp3", true);
@@ -109,6 +113,7 @@ bool MainMenuScene::init()
     };
     touchListener->onTouchMoved = [&] (Touch* touch, Event* event) -> void {
         if (movingSprite) {
+            movingSprite->setPhysicsBody(nullptr);
             Point touchLocation = touch->getLocation();
             Point oldTouchLocation = touch->getPreviousLocation();
             Vec2 translation = touchLocation - oldTouchLocation;
@@ -117,6 +122,7 @@ bool MainMenuScene::init()
     };
     touchListener->onTouchEnded = [&] (Touch* touch, Event* event) -> void {
         if (movingSprite) {
+            movingSprite->setPhysicsBody(spriteBody);
             movingSprite = nullptr;
         }
     };
@@ -138,7 +144,6 @@ void MainMenuScene::drop(float dt)
     int number = rand() % 8 + 1;
     auto number_sprite = Sprite::create(std::to_string(number) + ".png");
     number_sprite->setPosition(start_x_pos, HEIGHT - 50);
-    auto spriteBody = PhysicsBody::createBox( number_sprite->getContentSize(), PhysicsMaterial( 1, 0.5, 0 ) );
     number_sprite->setPhysicsBody( spriteBody );
     cells.insert(number_sprite);
     this->addChild(number_sprite);
@@ -149,6 +154,7 @@ void MainMenuScene::resetEdge(float dt) {
     replay->setPhysicsBody(replayEdge);
     mute->setPhysicsBody(buttonEdge);
     edgeNode->setPhysicsBody(edgeBody);
+// make searching fast by remove cell out of view
     cells.clear();
 }
 

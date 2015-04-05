@@ -50,6 +50,8 @@ private:
     void selectSpriteForTouch(Point touchLocation);
     
     void updateMovingSpritePosition(Vec2 p);
+    
+    PhysicsBody *spriteBody;
 };
 
 #endif 
