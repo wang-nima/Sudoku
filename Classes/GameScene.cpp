@@ -25,34 +25,15 @@ bool GameScene::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
     
+// add label
     auto label = Label::createWithTTF("Enjor your Sudoku!", "Naughty Cartoons.ttf", 40);
     label->setPosition(Point(visibleSize.width / 2,
                              visibleSize.height - 100));
     label->setColor(Color3B::BLACK);
     this->addChild(label);
     
+// initalize some class member
     movingSprite = nullptr;
-    
-    auto touchListener = EventListenerTouchOneByOne::create();
-    touchListener->setSwallowTouches(true);
-    touchListener->onTouchBegan = [&](Touch* touch, Event* event) -> bool {
-        Point touchPosition = touch->getLocation();
-        selectSpriteForTouch(touchPosition);
-        return true;
-    };
-    touchListener->onTouchMoved = [&] (Touch* touch, Event* event) -> void {
-        Point touchLocation = touch->getLocation();
-        Point oldTouchLocation = touch->getPreviousLocation();
-        Vec2 translation = touchLocation - oldTouchLocation;
-        this->updateMovingSpritePosition(translation);
-    };
-    touchListener->onTouchEnded = [&] (Touch* touch, Event* event) -> void {
-        movingSprite = nullptr;
-        //Point endPosition = touch
-        
-    };
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
-    
     game.regenerate(2);
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
@@ -60,16 +41,17 @@ bool GameScene::init()
         }
     }
     
-    //add game board
+// add game board
     auto board = Sprite::create("board.png");
     board->setPosition(center);
     this->addChild(board);
     
+// calculate sizes and positions
     auto boardSize = board->getContentSize();
     auto boardPosition = board->getPosition();
-    Point boardTopLeft(boardPosition.x - boardSize.width / 2,
-                       boardPosition.y + boardSize.height / 2);
-    int cellLength = boardSize.height / 9;
+    boardTopLeft.x = boardPosition.x - boardSize.width / 2;
+    boardTopLeft.y = boardPosition.y + boardSize.height / 2;
+    cellLength = boardSize.height / 9;
     
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
@@ -89,11 +71,35 @@ bool GameScene::init()
         numberSprite *numberCell = numberSprite::create(std::to_string(i) + ".png");
         numberCell->num = i;
         numberCell->inBoard = false;
-        numberCell->setPosition(boardTopLeft.x / 2,
-                                visibleSize.height - visibleSize.height / 10 * i);
+        initPosition.push_back(Point(boardTopLeft.x / 2,
+                                     visibleSize.height - visibleSize.height / 10 * i));
+        numberCell->setPosition(initPosition[i-1]);
         this->addChild(numberCell);
         v.push_back(numberCell);
     }
+    
+// set up touch event listener using lambda, c++11 feature
+    
+    auto touchListener = EventListenerTouchOneByOne::create();
+    touchListener->setSwallowTouches(true);
+    touchListener->onTouchBegan = [&](Touch* touch, Event* event) -> bool {
+        Point touchPosition = touch->getLocation();
+        selectSpriteForTouch(touchPosition);
+        return true;
+    };
+    touchListener->onTouchMoved = [&] (Touch* touch, Event* event) -> void {
+        Point touchLocation = touch->getLocation();
+        Point oldTouchLocation = touch->getPreviousLocation();
+        Vec2 translation = touchLocation - oldTouchLocation;
+        this->updateMovingSpritePosition(translation);
+    };
+    touchListener->onTouchEnded = [&] (Touch* touch, Event* event) -> void {
+        Point touchLocation = touch->getLocation();
+        adjustPosition(touchLocation);
+        movingSprite = nullptr;
+    };
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
+    
     return true;
 }
 
@@ -110,4 +116,18 @@ void GameScene::updateMovingSpritePosition(Vec2 p) {
         Point oldPosition = movingSprite->getPosition();
         movingSprite->setPosition(oldPosition + p);
     }
+}
+
+void GameScene::adjustPosition(Point locationBeforeAdjust) {
+    int x = locationBeforeAdjust.x;
+    int y = locationBeforeAdjust.y;
+    int top_left_x = boardTopLeft.x;
+    int top_left_y = boardTopLeft.y;
+    int new_x = ( (x - top_left_x) / cellLength + 0.5 ) * cellLength + top_left_x;
+    int new_y = top_left_y - ( (top_left_y - y) / cellLength + 0.5 ) * cellLength;
+    //CCLOG("%d %d", x, y);
+    //CCLOG("%d %d", boardTopLeft.x, boardTopLeft.y);
+    //CCLOG("%d %d", top_left_x, top_left_y);
+    //CCLOG("adjust function %d %d", new_x, new_y);
+    movingSprite->setPosition(Point(new_x, new_y));
 }

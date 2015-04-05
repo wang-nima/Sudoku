@@ -14,6 +14,5 @@
 #define WIDTH 2048
 #define HEIGHT 1536
 
-#define CELL_LENGTH 134
 
 #endif

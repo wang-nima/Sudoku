@@ -6,6 +6,7 @@
 #include "numberSprite.h"
 
 using namespace cocos2d;
+using namespace std;
 
 class GameScene: public cocos2d::LayerColor
 {
@@ -22,9 +23,14 @@ private:
     SudokuEntity game;
     int state[9][9];
     numberSprite *movingSprite;
-    std::vector<numberSprite*> v;
+    vector<numberSprite*> v;
+    vector<Point> initPosition;
+    Point boardTopLeft;
+    int cellLength;
     void selectSpriteForTouch(Point touchLocation);
     void updateMovingSpritePosition(Vec2 p);
+    void adjustPosition(Point locationBeforeAdjust);
+    void addNewNumberCell();
 };
 
 #endif // __HELLOWORLD_SCENE_H__
