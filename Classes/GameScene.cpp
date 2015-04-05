@@ -34,7 +34,7 @@ bool GameScene::init()
     
 // initalize some class member
     movingSprite = nullptr;
-    game.regenerate(2);
+    game.regenerate(0);
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             state[i][j] = game.startStatus[i][j];
@@ -75,7 +75,7 @@ bool GameScene::init()
     
 // create candidate number cell
     for (int i = 1; i <= 9 ; i++) {
-        numberSprite *numberCell = numberSprite::create(std::to_string(i) + ".png");
+        numberSprite *numberCell = numberSprite::create(to_string(i) + ".png");
         numberCell->num = i;
         numberCell->inBoard = false;
         initPosition.push_back(Point(boardTopLeft.x / 2,
@@ -149,10 +149,20 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
             int new_y = top_left_y - ( row_count_y + 0.5 ) * cellLength;
             
             state[row_count_y][row_count_x] = movingSprite->num;
+            if (movingSprite->inBoard == false) {           // drag number cell from left into board
+                addNewNumberCell(movingSprite->num);
+            }
             movingSprite->inBoard = true;
             movingSprite->currentRow = row_count_y;
             movingSprite->currentColumn = row_count_x;
             emptyCellinBoardCount--;
+            if (emptyCellinBoardCount == 0) {
+                if (checkGameBoard()) {
+                    CCLOG("success");
+                } else {
+                    CCLOG("some thing is not correct");
+                }
+            }
             auto action = MoveTo::create(0.2, Point(new_x, new_y));
             movingSprite->runAction(action);
             return;
@@ -163,4 +173,25 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
     movingSprite->currentColumn = movingSprite->currentRow = -1;
     auto action = MoveTo::create(0.2, initPosition[num-1]);
     movingSprite->runAction(action);
+}
+
+void GameScene::addNewNumberCell(int num) {
+    numberSprite *newNumCell = numberSprite::create(to_string(num) + ".png");
+    newNumCell->setPosition(initPosition[num-1]);
+    newNumCell->num = num;
+    newNumCell->inBoard = false;
+    newNumCell->currentRow = newNumCell->currentColumn = -1;
+    moveAbleCell.push_back(newNumCell);
+    this->addChild(newNumCell);
+}
+
+bool GameScene::checkGameBoard() {
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (game.endStatus[i][j] != state[i][j]) {
+                return false;
+            }
+        }
+    }
+    return true;
 }

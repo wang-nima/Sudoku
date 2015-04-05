@@ -40,9 +40,11 @@ private:
     
     void adjustPosition(Point locationBeforeAdjust);
     
-    void addNewNumberCell();
+    void addNewNumberCell(int num);         // create number cell num at left side
     
     int emptyCellinBoardCount;
+    
+    bool checkGameBoard();
 };
 
 #endif // __HELLOWORLD_SCENE_H__
