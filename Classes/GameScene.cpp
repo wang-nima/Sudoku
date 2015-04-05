@@ -130,10 +130,12 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
             int new_x = ( row_count_x + 0.5 ) * cellLength + top_left_x;
             int new_y = top_left_y - ( row_count_y + 0.5 ) * cellLength;
             state[row_count_y][row_count_x] = movingSprite->num;
-            movingSprite->setPosition(Point(new_x, new_y));
+            auto action = MoveTo::create(0.2, Point(new_x, new_y));
+            movingSprite->runAction(action);
             return;
         }
     }
     int num = movingSprite->num;
-    movingSprite->setPosition(initPosition[num-1]);
+    auto action = MoveTo::create(0.2, initPosition[num-1]);
+    movingSprite->runAction(action);
 }
