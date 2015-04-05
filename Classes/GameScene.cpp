@@ -21,7 +21,6 @@ bool GameScene::init()
     if ( !LayerColor::initWithColor(Color4B::WHITE)) {
         return false;
     }
-    
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
@@ -55,6 +54,9 @@ bool GameScene::init()
     cellLength = boardSize.height / 9;
 
 // add number in fix cell
+    
+    emptyCellinBoardCount = 0;
+    
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             int temp = game.startStatus[i][j];
@@ -65,6 +67,8 @@ bool GameScene::init()
                 fixedCell->setPosition(boardTopLeft.x + ( j + 0.5 ) * cellLength,
                                        boardTopLeft.y - ( i + 0.5 ) * cellLength);
                 this->addChild(fixedCell);
+            } else {
+                emptyCellinBoardCount++;
             }
         }
     }
@@ -81,25 +85,34 @@ bool GameScene::init()
         moveAbleCell.push_back(numberCell);
     }
     
-// set up touch event listener using lambda, c++11 feature
-    
+// set up touch event listener using lambda expression, c++11 feature
     auto touchListener = EventListenerTouchOneByOne::create();
     touchListener->setSwallowTouches(true);
     touchListener->onTouchBegan = [&](Touch* touch, Event* event) -> bool {
         Point touchPosition = touch->getLocation();
         selectSpriteForTouch(touchPosition);
+        if (movingSprite) {
+            if (movingSprite->inBoard == true) {
+                state[movingSprite->currentRow][movingSprite->currentColumn] = 0;
+                emptyCellinBoardCount++;
+            }
+        }
         return true;
     };
     touchListener->onTouchMoved = [&] (Touch* touch, Event* event) -> void {
-        Point touchLocation = touch->getLocation();
-        Point oldTouchLocation = touch->getPreviousLocation();
-        Vec2 translation = touchLocation - oldTouchLocation;
-        this->updateMovingSpritePosition(translation);
+        if (movingSprite) {
+            Point touchLocation = touch->getLocation();
+            Point oldTouchLocation = touch->getPreviousLocation();
+            Vec2 translation = touchLocation - oldTouchLocation;
+            this->updateMovingSpritePosition(translation);
+        }
     };
     touchListener->onTouchEnded = [&] (Touch* touch, Event* event) -> void {
-        Point touchLocation = touch->getLocation();
-        adjustPosition(touchLocation);
-        movingSprite = nullptr;
+        if (movingSprite) {
+            Point touchLocation = touch->getLocation();
+            adjustPosition(touchLocation);
+            movingSprite = nullptr;
+        }
     };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
     
@@ -115,6 +128,7 @@ void GameScene::selectSpriteForTouch(Point p) {
     }
 }
 
+// for onTouchMoved
 void GameScene::updateMovingSpritePosition(Vec2 p) {
     if (movingSprite != nullptr) {
         Point oldPosition = movingSprite->getPosition();
@@ -122,7 +136,9 @@ void GameScene::updateMovingSpritePosition(Vec2 p) {
     }
 }
 
+// for onTouchEnd
 void GameScene::adjustPosition(Point locationBeforeAdjust) {
+    // move into boarrd cell
     if (board->getBoundingBox().containsPoint(locationBeforeAdjust)) {
         int x = locationBeforeAdjust.x;
         int y = locationBeforeAdjust.y;
@@ -133,14 +149,20 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
         if (state[row_count_y][row_count_x] == 0) {
             int new_x = ( row_count_x + 0.5 ) * cellLength + top_left_x;
             int new_y = top_left_y - ( row_count_y + 0.5 ) * cellLength;
+            
             state[row_count_y][row_count_x] = movingSprite->num;
             movingSprite->inBoard = true;
+            movingSprite->currentRow = row_count_y;
+            movingSprite->currentColumn = row_count_x;
+            emptyCellinBoardCount--;
             auto action = MoveTo::create(0.2, Point(new_x, new_y));
             movingSprite->runAction(action);
             return;
         }
     }
     int num = movingSprite->num;
+    movingSprite->inBoard = false;
+    movingSprite->currentColumn = movingSprite->currentRow = -1;
     auto action = MoveTo::create(0.2, initPosition[num-1]);
     movingSprite->runAction(action);
 }

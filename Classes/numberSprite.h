@@ -14,5 +14,7 @@ public:
 	// make public intentionally, no need to write code for getter and setter
 	bool inBoard;
 	int num;
+    int currentRow;     // only used when inBoard is true
+    int currentColumn;
 };
 

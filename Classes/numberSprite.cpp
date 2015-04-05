@@ -3,6 +3,7 @@
 numberSprite::numberSprite() {
 	inBoard = false;
 	num = -1;
+    currentColumn = currentRow = -1;
 }
 
 numberSprite::~numberSprite() {}

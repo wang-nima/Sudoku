@@ -12,8 +12,11 @@ class GameScene: public cocos2d::LayerColor
 {
 public:
     static cocos2d::Scene* createScene();
+    
     virtual bool init();
+    
     CREATE_FUNC(GameScene);
+    
 private:
     SudokuEntity game;
     
@@ -21,7 +24,7 @@ private:
     
     numberSprite *movingSprite;
     
-    vector<numberSprite*> moveAbleCell;
+    vector<numberSprite*> moveAbleCell;     // include cell in the left and in board
     
     vector<Point> initPosition;
     
@@ -38,6 +41,8 @@ private:
     void adjustPosition(Point locationBeforeAdjust);
     
     void addNewNumberCell();
+    
+    int emptyCellinBoardCount;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
