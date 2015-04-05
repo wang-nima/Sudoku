@@ -22,11 +22,10 @@ bool GameScene::init()
         return false;
     }
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
     
 // add label
-    auto label = Label::createWithTTF("Enjor your Sudoku!", "Naughty Cartoons.ttf", 40);
+    label = Label::createWithTTF("Enjor your Sudoku!", "Naughty Cartoons.ttf", 40);
     label->setPosition(Point(visibleSize.width / 2,
                              visibleSize.height - 100));
     label->setColor(Color3B::BLACK);
@@ -34,7 +33,7 @@ bool GameScene::init()
     
 // initalize some class member
     movingSprite = nullptr;
-    game.regenerate(0);
+    game.regenerate(1);
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             state[i][j] = game.startStatus[i][j];
@@ -159,8 +158,10 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
             if (emptyCellinBoardCount == 0) {
                 if (checkGameBoard()) {
                     CCLOG("success");
+                    label->setString("success");
                 } else {
                     CCLOG("some thing is not correct");
+                    label->setString("some thing is not correct");
                 }
             }
             auto action = MoveTo::create(0.2, Point(new_x, new_y));

@@ -45,6 +45,8 @@ private:
     int emptyCellinBoardCount;
     
     bool checkGameBoard();
+    
+    Label *label;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

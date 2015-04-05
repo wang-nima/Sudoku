@@ -25,7 +25,6 @@ bool MainMenuScene::init()
     }
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
     
     auto menu_item_1 = MenuItemFont::create("Play", CC_CALLBACK_1(MainMenuScene::GoToGameScene, this));
@@ -45,8 +44,8 @@ bool MainMenuScene::init()
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("mc.mp3");
     
     auto mute = Button::create("mute.png");
-    mute->setPosition( Point(origin.x + visibleSize.width - 100,
-                             origin.y + 100) );
+    mute->setPosition( Point(visibleSize.width - 100,
+                             100) );
     mute->addTouchEventListener([=](Ref* sender, Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::BEGAN) {
             if (musicPlaying) {
