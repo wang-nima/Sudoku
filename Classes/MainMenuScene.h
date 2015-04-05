@@ -2,6 +2,7 @@
 #define __MAINMENU_SCENE_H__
 
 #include "cocos2d.h"
+#include <unordered_set>
 
 class MainMenuScene: public cocos2d::LayerColor
 {

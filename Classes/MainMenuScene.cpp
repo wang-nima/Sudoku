@@ -46,8 +46,7 @@ bool MainMenuScene::init()
     
     
     auto mute = Button::create("mute.png");
-    mute->setPosition( Point(visibleSize.width - 100,
-                             100) );
+    mute->setPosition( Point(visibleSize.width - 100, 100) );
 // protect the button not block by number rain
     auto buttonEdge = PhysicsBody::createEdgeBox(mute->getVirtualRendererSize());
     mute->setPhysicsBody(buttonEdge);
@@ -67,6 +66,17 @@ bool MainMenuScene::init()
         
     });
     this->addChild(mute);
+// refresh number rain
+    auto replay = Button::create("replay.png");
+    replay->setPosition( Point(visibleSize.width - 100, 250) );
+// protect replay button
+    auto replayEdge = PhysicsBody::createEdgeBox(mute->getVirtualRendererSize());
+    replay->setPhysicsBody(replayEdge);
+    
+    replay->addTouchEventListener([=](Ref* sender, Widget::TouchEventType type){
+        CCLOG("replay button pressed");
+    });
+    this->addChild(replay);
     
 // add animation, create bounding box
     
