@@ -1,9 +1,4 @@
 #include "GameScene.h"
-#include "Definitions.h"
-#include "SimpleAudioEngine.h"
-#include "ui/CocosGUI.h"
-#include <cmath>
-#include <vector>
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -27,7 +22,7 @@ bool GameScene::init()
     auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
     
 // add label
-    label = Label::createWithTTF("Enjor your Sudoku!", "Naughty Cartoons.ttf", 40);
+    label = Label::createWithTTF("Drag the number cell into board!", "Naughty Cartoons.ttf", 40);
     label->setPosition(Point(visibleSize.width / 2,
                              visibleSize.height - 100));
     label->setColor(Color3B::BLACK);
@@ -42,6 +37,9 @@ bool GameScene::init()
         }
     }
     musicPlaying = true;
+// pre load music effect
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("Droplet.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("wrong.wav");
     
 // add game board
     board = Sprite::create("board.png");
@@ -184,11 +182,14 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
                     label->setString("success");
                 } else {
                     CCLOG("some thing is not correct");
+                    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("wrong.wav");
                     label->setString("some thing is not correct");
                 }
             }
-            auto action = MoveTo::create(0.2, Point(new_x, new_y));
+            auto action = MoveTo::create(0.1, Point(new_x, new_y));
             movingSprite->runAction(action);
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Droplet.wav");
+            
             return;
         }
     }

@@ -40,6 +40,9 @@ bool MainMenuScene::init()
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("mc.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("mc.mp3", true);
     
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("close1.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("close2.wav");
+    
     
     mute = Button::create("mute.png");
     mute->setPosition( Point(visibleSize.width - 100, 100) );
@@ -89,6 +92,7 @@ bool MainMenuScene::init()
         edgeNode->setPhysicsBody(nullptr);
         replay->setPhysicsBody(nullptr);
         mute->setPhysicsBody(nullptr);
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("close1.wav");
         this->schedule(schedule_selector(MainMenuScene::resetEdge), 1.0f, 0, 6);
     });
     this->addChild(replay);
@@ -149,6 +153,7 @@ void MainMenuScene::resetEdge(float dt) {
     replay->setPhysicsBody(replayEdge);
     mute->setPhysicsBody(buttonEdge);
     edgeNode->setPhysicsBody(edgeBody);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("close2.wav");
     cells.clear();
 }
 

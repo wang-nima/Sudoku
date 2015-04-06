@@ -4,6 +4,11 @@
 #include "cocos2d.h"
 #include "sudokuentity.h"
 #include "numberSprite.h"
+#include "SimpleAudioEngine.h"
+#include "ui/CocosGUI.h"
+#include "Definitions.h"
+#include <cmath>
+#include <vector>
 
 using namespace cocos2d;
 using namespace std;
