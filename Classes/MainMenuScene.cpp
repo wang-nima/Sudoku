@@ -36,9 +36,6 @@ bool MainMenuScene::init()
     title->setColor(Color3B::BLACK);
     this->addChild(title);
     
-// set member function
-    rainPhysicsBody = PhysicsBody::createBox( Sprite::create("1.png")->getContentSize(), PhysicsMaterial( 1, 0.5, 0 ) );
-    
 // music related code
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("mc.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("mc.mp3", true);
@@ -124,7 +121,6 @@ bool MainMenuScene::init()
     };
     touchListener->onTouchEnded = [&] (Touch* touch, Event* event) -> void {
         if (movingSprite) {
-            //movingSprite->getPhysicsBody()->setVelocity(Vec2(0, 2000));
             movingSprite = nullptr;
         }
     };
@@ -146,7 +142,8 @@ void MainMenuScene::drop(float dt)
     int number = rand() % 8 + 1;
     auto number_sprite = Sprite::create(std::to_string(number) + ".png");
     number_sprite->setPosition(start_x_pos, HEIGHT - 50);
-    number_sprite->setPhysicsBody(rainPhysicsBody);
+    auto spriteBody = PhysicsBody::createBox( number_sprite->getContentSize(), PhysicsMaterial( 1, 0.5, 0 ) );
+    number_sprite->setPhysicsBody( spriteBody );
     cells.insert(number_sprite);
     this->addChild(number_sprite);
 }
