@@ -23,12 +23,17 @@ bool MainMenuScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
     
+    MenuItemFont::setFontSize(80);
     auto menu_item_1 = MenuItemFont::create("Play", CC_CALLBACK_1(MainMenuScene::GoToGameScene, this));
     menu_item_1->setColor(Color3B::BLACK);
-    menu_item_1->setFontSize(100);
+    menu_item_1->setPosition(visibleSize.width / 2, visibleSize.height / 11 * 6 );
     
-    auto menu = Menu::create(menu_item_1, nullptr);
-    menu->setPosition(center);
+    auto menu_item_2 = MenuItemFont::create("Easy", CC_CALLBACK_1(MainMenuScene::GoToGameScene, this));
+    menu_item_2->setColor(Color3B::BLACK);
+    menu_item_2->setPosition(visibleSize.width / 2, visibleSize.height / 11 * 5 );
+    
+    auto menu = Menu::create(menu_item_1, menu_item_2, nullptr);
+    menu->setPosition(Point(0, 0));
     this->addChild(menu);
     
     auto title = Label::createWithTTF("Sudoku", "Naughty Cartoons.ttf", 156);
