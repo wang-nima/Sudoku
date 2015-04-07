@@ -55,10 +55,12 @@ bool MainMenuScene::init()
     mute->addTouchEventListener([=](Ref* sender, Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::BEGAN) {
             if (musicPlaying) {
+                CCLOG("mute button pressed");
                 CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
                 mute->loadTextureNormal("unmute.png");
                 musicPlaying = false;
             } else {
+                CCLOG("unmute button pressed");
                 CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
                 mute->loadTextureNormal("mute.png");
                 musicPlaying = true;
@@ -88,12 +90,14 @@ bool MainMenuScene::init()
     replay->setPhysicsBody(replayEdge);
     
     replay->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
-        CCLOG("replay button pressed");
-        edgeNode->setPhysicsBody(nullptr);
-        replay->setPhysicsBody(nullptr);
-        mute->setPhysicsBody(nullptr);
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("close1.wav");
-        this->schedule(schedule_selector(MainMenuScene::resetEdge), 1.0f, 0, 6);
+        if (type == ui::Widget::TouchEventType::BEGAN) {
+            CCLOG("replay button pressed");
+            edgeNode->setPhysicsBody(nullptr);
+            replay->setPhysicsBody(nullptr);
+            mute->setPhysicsBody(nullptr);
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("close1.wav");
+            this->schedule(schedule_selector(MainMenuScene::resetEdge), 1.0f, 0, 6);
+        }
     });
     this->addChild(replay);
     

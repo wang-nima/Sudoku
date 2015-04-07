@@ -11,6 +11,7 @@
 #include <vector>
 
 using namespace cocos2d;
+using namespace cocos2d::ui;
 using namespace std;
 
 class GameScene: public cocos2d::LayerColor
@@ -23,6 +24,11 @@ public:
     CREATE_FUNC(GameScene);
     
 private:
+    void setPhysicsWorld(cocos2d::PhysicsWorld *world) {
+        this->world = world;
+    }
+    cocos2d::PhysicsWorld *world;
+    
     SudokuEntity game;
     
     int state[9][9];
@@ -51,9 +57,15 @@ private:
     
     bool checkGameBoard();
     
+    void resetBoard();
+    
     Label *label;
     
     bool musicPlaying;
+    
+    Button *replay;
+    
+    //PhysicsBody *drop;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

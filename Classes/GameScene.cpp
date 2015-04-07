@@ -1,4 +1,5 @@
 #include "GameScene.h"
+#include <cassert>
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -6,8 +7,10 @@ using namespace cocos2d::ui;
 
 Scene* GameScene::createScene()
 {
-    auto scene = Scene::create();
+    auto scene = Scene::createWithPhysics();
+    scene->getPhysicsWorld()->setGravity(Vec2(0, -200));
     auto layer = GameScene::create();
+    layer->setPhysicsWorld(scene->getPhysicsWorld());
     scene->addChild(layer);
     return scene;
 }
@@ -30,7 +33,7 @@ bool GameScene::init()
     
 // initalize some class member
     movingSprite = nullptr;
-    game.regenerate(1);
+    game.regenerate(0);
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             state[i][j] = game.startStatus[i][j];
@@ -136,6 +139,20 @@ bool GameScene::init()
     });
     this->addChild(mute);
     
+// reset the board
+    
+    replay = Button::create("replay.png");
+    replay->setPosition( Point(visibleSize.width - 100, 250) );
+    
+    
+    replay->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::BEGAN) {
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("close1.wav");
+            resetBoard();
+        }
+    });
+    this->addChild(replay);
+    
     return true;
 }
 
@@ -219,4 +236,22 @@ bool GameScene::checkGameBoard() {
         }
     }
     return true;
+}
+
+void GameScene::resetBoard() {
+    CCLOG("%lu a", moveAbleCell.size());
+    for (auto it = moveAbleCell.begin(); it != moveAbleCell.end(); ) {
+        if ((*it)->inBoard) {
+            auto drop = PhysicsBody::createBox( moveAbleCell[0]->getContentSize(), PhysicsMaterial( 1, 0.5, 0 ) );
+            (*it)->setPhysicsBody(drop);
+            (*it)->inBoard = false;
+            emptyCellinBoardCount++;
+            state[(*it)->currentRow][(*it)->currentColumn] = 0;
+            moveAbleCell.erase(it);
+        } else {
+            ++it;
+        }
+    }
+    assert(moveAbleCell.size() == 9);
+    CCLOG("%lu b", moveAbleCell.size());
 }
