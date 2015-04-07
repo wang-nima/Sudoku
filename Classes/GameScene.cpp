@@ -9,7 +9,7 @@ using namespace cocos2d::ui;
 Scene* GameScene::createScene()
 {
     auto scene = Scene::createWithPhysics();
-    scene->getPhysicsWorld()->setGravity(Vec2(0, -200));
+    scene->getPhysicsWorld()->setGravity(Vec2(0, -500));
     auto layer = GameScene::create();
     layer->setPhysicsWorld(scene->getPhysicsWorld());
     scene->addChild(layer);
