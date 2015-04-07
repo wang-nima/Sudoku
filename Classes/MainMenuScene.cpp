@@ -39,7 +39,7 @@ bool MainMenuScene::init()
     menu_item_1->setColor(Color3B::BLACK);
     menu_item_1->setPosition(visibleSize.width / 2, visibleSize.height / 11 * 6 );
     
-    menu_item_2 = MenuItemFont::create("Easy");
+    menu_item_2 = MenuItemFont::create(map[difficulty]);
     menu_item_2->setColor(Color3B::BLACK);
     menu_item_2->setPosition(visibleSize.width / 2, visibleSize.height / 11 * 5 );
     
@@ -47,23 +47,30 @@ bool MainMenuScene::init()
     menu->setPosition(Point(0, 0));
     this->addChild(menu);
     
-// refresh number rain
+// select difficulty button
     auto left = Button::create("left.png");
-    left->setPosition( Point(visibleSize.width / 2 - 150, visibleSize.height / 11 * 5) );
+    left->setPosition( Point(visibleSize.width / 2 - 200, visibleSize.height / 11 * 5) );
     
     left->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::BEGAN) {
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Droplet.wav");
+            difficulty--;
+            if (difficulty == -1) {
+                difficulty = 4;
+            }
+            menu_item_2->setString(map[difficulty]);
         }
     });
     this->addChild(left);
 
     auto right = Button::create("right.png");
-    right->setPosition( Point(visibleSize.width / 2 + 150, visibleSize.height / 11 * 5) );
+    right->setPosition( Point(visibleSize.width / 2 + 200, visibleSize.height / 11 * 5) );
     
     right->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::BEGAN) {
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Droplet.wav");
+            difficulty = ( difficulty + 1 ) % 5;
+            menu_item_2->setString(map[difficulty]);
         }
     });
     this->addChild(right);
@@ -168,6 +175,7 @@ bool MainMenuScene::init()
 void MainMenuScene::GoToGameScene (cocos2d::Ref *sender) {
     auto scene = GameScene::createScene();
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("click.wav");
+    UserDefault::getInstance()->setIntegerForKey("difficulty", difficulty);
     Director::getInstance()->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
 }
 

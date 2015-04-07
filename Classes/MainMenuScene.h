@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include <unordered_set>
+#include <unordered_map>
 #include "SimpleAudioEngine.h"
 #include "ui/CocosGUI.h"
 #include <ctime>       /* time */
@@ -54,6 +55,10 @@ private:
     MenuItemFont *menu_item_1;
     
     MenuItemFont *menu_item_2;
+    
+    unordered_map<int, string> map = { {0, "Naive"}, {1 , "Easy"}, {2, "Medium"}, {3, "Hard"}, {4, "Expert"}};
+    
+    int difficulty = 0;
 };
 
 #endif 

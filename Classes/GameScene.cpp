@@ -33,7 +33,7 @@ bool GameScene::init()
     
 // initalize some class member
     movingSprite = nullptr;
-    game.regenerate(1);
+    game.regenerate(UserDefault::getInstance()->getIntegerForKey("difficulty"));
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             state[i][j] = game.startStatus[i][j];
