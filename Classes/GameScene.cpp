@@ -174,6 +174,7 @@ void GameScene::updateMovingSpritePosition(Vec2 p) {
 // for onTouchEnd
 void GameScene::adjustPosition(Point locationBeforeAdjust) {
     // move into boarrd cell
+    bool flag = false;
     if (board->getBoundingBox().containsPoint(locationBeforeAdjust)) {
         int x = locationBeforeAdjust.x;
         int y = locationBeforeAdjust.y;
@@ -181,6 +182,8 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
         int top_left_y = boardTopLeft.y;
         int row_count_x = ( x - top_left_x ) / cellLength;
         int row_count_y = ( top_left_y - y ) / cellLength;
+        
+        //cell is empty
         if (state[row_count_y][row_count_x] == 0) {
             int new_x = ( row_count_x + 0.5 ) * cellLength + top_left_x;
             int new_y = top_left_y - ( row_count_y + 0.5 ) * cellLength;
@@ -206,13 +209,21 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
             auto action = MoveTo::create(0.1, Point(new_x, new_y));
             movingSprite->runAction(action);
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Droplet.wav");
-            
             return;
         }
+        flag = true;    // put cell in board and the block is not empty
     }
     int num = movingSprite->num;
     movingSprite->inBoard = false;
     movingSprite->currentColumn = movingSprite->currentRow = -1;
+    if (!flag) {
+        for (auto it = moveAbleCell.begin(); it != moveAbleCell.end(); it++) {
+            if (*it == movingSprite) {
+                moveAbleCell.erase(it);
+                break;
+            }
+        }
+    }
     auto action = MoveTo::create(0.2, initPosition[num-1]);
     movingSprite->runAction(action);
 }
