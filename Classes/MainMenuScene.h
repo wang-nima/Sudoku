@@ -50,6 +50,10 @@ private:
     void selectSpriteForTouch(Point touchLocation);
     
     void updateMovingSpritePosition(Vec2 p);
+    
+    MenuItemFont *menu_item_1;
+    
+    MenuItemFont *menu_item_2;
 };
 
 #endif 

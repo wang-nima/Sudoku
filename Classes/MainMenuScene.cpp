@@ -23,24 +23,6 @@ bool MainMenuScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
     
-    MenuItemFont::setFontSize(80);
-    auto menu_item_1 = MenuItemFont::create("Play", CC_CALLBACK_1(MainMenuScene::GoToGameScene, this));
-    menu_item_1->setColor(Color3B::BLACK);
-    menu_item_1->setPosition(visibleSize.width / 2, visibleSize.height / 11 * 6 );
-    
-    auto menu_item_2 = MenuItemFont::create("Easy", CC_CALLBACK_1(MainMenuScene::GoToGameScene, this));
-    menu_item_2->setColor(Color3B::BLACK);
-    menu_item_2->setPosition(visibleSize.width / 2, visibleSize.height / 11 * 5 );
-    
-    auto menu = Menu::create(menu_item_1, menu_item_2, nullptr);
-    menu->setPosition(Point(0, 0));
-    this->addChild(menu);
-    
-    auto title = Label::createWithTTF("Sudoku", "Naughty Cartoons.ttf", 156);
-    title->setPosition(visibleSize.width / 2, visibleSize.height / 2 + 300);
-    title->setColor(Color3B::BLACK);
-    this->addChild(title);
-    
 // music related code
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("mc.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("mc.mp3", true);
@@ -48,6 +30,50 @@ bool MainMenuScene::init()
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("close1.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("close2.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("click.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("Droplet.wav");
+    
+    
+// menu buttons
+    MenuItemFont::setFontSize(80);
+    menu_item_1 = MenuItemFont::create("Play", CC_CALLBACK_1(MainMenuScene::GoToGameScene, this));
+    menu_item_1->setColor(Color3B::BLACK);
+    menu_item_1->setPosition(visibleSize.width / 2, visibleSize.height / 11 * 6 );
+    
+    menu_item_2 = MenuItemFont::create("Easy");
+    menu_item_2->setColor(Color3B::BLACK);
+    menu_item_2->setPosition(visibleSize.width / 2, visibleSize.height / 11 * 5 );
+    
+    auto menu = Menu::create(menu_item_1, menu_item_2, nullptr);
+    menu->setPosition(Point(0, 0));
+    this->addChild(menu);
+    
+// refresh number rain
+    auto left = Button::create("left.png");
+    left->setPosition( Point(visibleSize.width / 2 - 150, visibleSize.height / 11 * 5) );
+    
+    left->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::BEGAN) {
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Droplet.wav");
+        }
+    });
+    this->addChild(left);
+
+    auto right = Button::create("right.png");
+    right->setPosition( Point(visibleSize.width / 2 + 150, visibleSize.height / 11 * 5) );
+    
+    right->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::BEGAN) {
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Droplet.wav");
+        }
+    });
+    this->addChild(right);
+    
+// set up label
+    
+    auto title = Label::createWithTTF("Sudoku", "Naughty Cartoons.ttf", 156);
+    title->setPosition(visibleSize.width / 2, visibleSize.height / 2 + 300);
+    title->setColor(Color3B::BLACK);
+    this->addChild(title);
     
     
     mute = Button::create("mute.png");
