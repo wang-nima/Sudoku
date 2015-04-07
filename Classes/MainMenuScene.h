@@ -56,7 +56,7 @@ private:
     
     MenuItemFont *menu_item_2;
     
-    unordered_map<int, string> map = { {0, "Naive"}, {1 , "Easy"}, {2, "Medium"}, {3, "Hard"}, {4, "Expert"}};
+    unordered_map<int, string> map = { {0, "Naive"}, {1 , "Easy"}, {2, "Medium"}, {3, "Hard"}, {4, "Expert"} };
     
     int difficulty = 0;
 };

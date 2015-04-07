@@ -1,5 +1,6 @@
 #include "GameScene.h"
 #include <cassert>
+#include <CCUserDefault.h>
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -33,7 +34,9 @@ bool GameScene::init()
     
 // initalize some class member
     movingSprite = nullptr;
-    game.regenerate(UserDefault::getInstance()->getIntegerForKey("difficulty"));
+    int diff = UserDefault::getInstance()->getIntegerForKey("difficulty");
+    game.regenerate(diff);
+    CCLOG("game scene %d", diff);
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             state[i][j] = game.startStatus[i][j];

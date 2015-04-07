@@ -1,6 +1,7 @@
 #include "MainMenuScene.h"
 #include "Definitions.h"
 #include "GameScene.h"
+#include <CCUserDefault.h>
 
 USING_NS_CC;
 
@@ -58,6 +59,7 @@ bool MainMenuScene::init()
             if (difficulty == -1) {
                 difficulty = 4;
             }
+            UserDefault::getInstance()->setIntegerForKey("difficulty", difficulty);
             menu_item_2->setString(map[difficulty]);
         }
     });
@@ -70,6 +72,7 @@ bool MainMenuScene::init()
         if (type == ui::Widget::TouchEventType::BEGAN) {
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Droplet.wav");
             difficulty = ( difficulty + 1 ) % 5;
+            UserDefault::getInstance()->setIntegerForKey("difficulty", difficulty);
             menu_item_2->setString(map[difficulty]);
         }
     });
@@ -175,7 +178,7 @@ bool MainMenuScene::init()
 void MainMenuScene::GoToGameScene (cocos2d::Ref *sender) {
     auto scene = GameScene::createScene();
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("click.wav");
-    UserDefault::getInstance()->setIntegerForKey("difficulty", difficulty);
+    CCLOG("Main menu scene %d", difficulty);
     Director::getInstance()->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
 }
 
