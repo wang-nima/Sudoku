@@ -1,3 +1,3 @@
-# Directed Research
+# Sudoku Game
 
-This is a game project directed by professor Mike.
+This is a directed research project directed by professor Zyda from Univerisity of Southern California.
