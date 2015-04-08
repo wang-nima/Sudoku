@@ -49,6 +49,10 @@ bool MainMenuScene::init()
     this->addChild(menu);
     
 // select difficulty button
+    
+    difficulty = 0;
+    UserDefault::getInstance()->setIntegerForKey("difficulty", 0);
+    
     auto left = Button::create("left.png");
     left->setPosition( Point(visibleSize.width / 2 - 200, visibleSize.height / 11 * 5) );
     
@@ -178,7 +182,8 @@ bool MainMenuScene::init()
 void MainMenuScene::GoToGameScene (cocos2d::Ref *sender) {
     auto scene = GameScene::createScene();
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("click.wav");
-    CCLOG("Main menu scene %d", difficulty);
+    //CCLOG("Main menu scene %d", difficulty);
+    CCLOG("Main menu scene %d", UserDefault::getInstance()->getIntegerForKey("difficulty"));
     Director::getInstance()->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
 }
 
