@@ -9,6 +9,7 @@
 #include "Definitions.h"
 #include <cmath>
 #include <vector>
+#include "unordered_set"
 
 using namespace cocos2d;
 using namespace cocos2d::ui;
@@ -66,6 +67,12 @@ private:
     Button *replay;
     
     //PhysicsBody *drop;
+    
+    void showAnswer();
+    
+    bool answerShowing = false;
+    
+    unordered_set<Label*> ans;            // for delete ans
 };
 
 #endif // __HELLOWORLD_SCENE_H__

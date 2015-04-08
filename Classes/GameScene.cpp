@@ -43,6 +43,22 @@ bool GameScene::init()
         }
     }
     musicPlaying = true;
+    
+// menu in game scene
+    MenuItemFont::setFontSize(50);
+    //auto menu_item_1 = MenuItemFont::create("Answer", CC_CALLBACK_1(GameScene::showAnswer, this));
+    auto menu_item_1 = MenuItemFont::create("Answer", CC_CALLBACK_0(GameScene::showAnswer, this));
+
+    menu_item_1->setColor(Color3B::BLACK);
+    menu_item_1->setPosition(visibleSize.width - 150, visibleSize.height -100 );
+    
+    auto menu_item_2 = MenuItemFont::create("Share");
+    menu_item_2->setColor(Color3B::BLACK);
+    menu_item_2->setPosition(visibleSize.width - 150, visibleSize.height -200 );
+    
+    auto menu = Menu::create(menu_item_1, menu_item_2, nullptr);
+    menu->setPosition(Point(0, 0));
+    this->addChild(menu);
 // pre load music effect
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("Droplet.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("wrong.wav");
@@ -253,7 +269,7 @@ bool GameScene::checkGameBoard() {
 }
 
 void GameScene::resetBoard() {
-    CCLOG("%lu a", moveAbleCell.size());
+    //CCLOG("%lu a", moveAbleCell.size());
     for (auto it = moveAbleCell.begin(); it != moveAbleCell.end(); ) {
         if ((*it)->inBoard) {
             auto drop = PhysicsBody::createBox( moveAbleCell[0]->getContentSize(), PhysicsMaterial( 1, 0.5, 0 ) );
@@ -267,5 +283,53 @@ void GameScene::resetBoard() {
         }
     }
     assert(moveAbleCell.size() == 9);
-    CCLOG("%lu b", moveAbleCell.size());
+// clear state
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            if (game.startStatus[i][j] == 0) {
+                state[i][j] = 0;
+                emptyCellinBoardCount++;
+            }
+        }
+    }
+    //CCLOG("%lu b", moveAbleCell.size());
+}
+
+void GameScene::showAnswer() {
+    
+    CCLOG("show answer %d", answerShowing);
+    
+    if (!answerShowing) {
+        auto boardSize = board->getContentSize();
+        auto boardPosition = board->getPosition();
+        boardTopLeft.x = boardPosition.x - boardSize.width / 2;
+        boardTopLeft.y = boardPosition.y + boardSize.height / 2;
+        cellLength = boardSize.height / 9;
+        
+        resetBoard();
+        
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                int temp = game.startStatus[i][j];
+                if (temp == 0) {
+                    auto fixedCell = Label::createWithTTF(std::to_string(game.endStatus[i][j]), "squarefont.ttf", 50);
+                    fixedCell->setColor(Color3B::GRAY);
+                    fixedCell->setAnchorPoint(Vec2(0.5, 0.5));
+                    fixedCell->setPosition(boardTopLeft.x + ( j + 0.5 ) * cellLength,
+                                           boardTopLeft.y - ( i + 0.5 ) * cellLength);
+                    ans.insert(fixedCell);
+                    this->addChild(fixedCell);
+                } else {
+                    emptyCellinBoardCount++;
+                }
+            }
+        }
+        answerShowing = true;
+    } else {
+        for (auto it = ans.begin(); it != ans.end(); ++it) {
+            (*it)->removeFromParentAndCleanup(true);
+        }
+        ans.clear();
+        answerShowing = false;
+    }
 }
