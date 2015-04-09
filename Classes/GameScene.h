@@ -73,6 +73,8 @@ private:
     bool answerShowing = false;
     
     unordered_set<Label*> ans;            // for delete ans
+    
+    Button *goBackToMainMenu;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

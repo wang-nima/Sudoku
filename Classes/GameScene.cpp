@@ -138,11 +138,13 @@ bool GameScene::init()
     };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
     
-    
+
+// set mute button
     auto mute = Button::create("mute.png");
-    mute->setPosition( Point(visibleSize.width - 100,
-                             100) );
+    mute->setPosition( Point(visibleSize.width - 100, 100) );
+    
     mute->addTouchEventListener([=](Ref* sender, Widget::TouchEventType type){
+        
         if (type == ui::Widget::TouchEventType::BEGAN) {
             if (musicPlaying) {
                 CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
@@ -171,6 +173,19 @@ bool GameScene::init()
         }
     });
     this->addChild(replay);
+
+// go back to main menuscene
+    
+    goBackToMainMenu = Button::create("back.png");
+    goBackToMainMenu->setPosition( Point(visibleSize.width - 100, 400) );
+    
+    
+    goBackToMainMenu->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::BEGAN) {
+            Director::getInstance()->popScene();
+        }
+    });
+    this->addChild(goBackToMainMenu);
     
     return true;
 }

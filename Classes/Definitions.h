@@ -9,7 +9,7 @@
 #ifndef DR_Definitions_h
 #define DR_Definitions_h
 
-#define TRANSITION_TIME 1
+#define TRANSITION_TIME 0.5
 
 #define WIDTH 2048
 #define HEIGHT 1536
