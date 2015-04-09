@@ -182,7 +182,8 @@ bool GameScene::init()
     
     goBackToMainMenu->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::BEGAN) {
-            Director::getInstance()->popScene();
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("click.wav");
+            Director::getInstance()->popSceneWithTransition<TransitionSlideInR>(TRANSITION_TIME);
         }
     });
     this->addChild(goBackToMainMenu);

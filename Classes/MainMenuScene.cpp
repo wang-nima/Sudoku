@@ -184,8 +184,7 @@ void MainMenuScene::GoToGameScene (cocos2d::Ref *sender) {
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("click.wav");
     //CCLOG("Main menu scene %d", difficulty);
     CCLOG("Main menu scene %d", UserDefault::getInstance()->getIntegerForKey("difficulty"));
-    //Director::getInstance()->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
-    Director::getInstance()->replaceScene( TransitionSlideInB::create(1, scene) );
+    Director::getInstance()->pushScene( TransitionSlideInR::create(TRANSITION_TIME, scene));
 }
 
 // random drop number cell

@@ -251,6 +251,27 @@ public:
      * ONLY call it if there is a running scene.
      */
     void popScene();
+    
+    template <class T>
+    void popSceneWithTransition(float t)
+    {
+        CCASSERT(_runningScene != nullptr, "running scene should not null");
+        
+        _scenesStack.popBack();
+        ssize_t c = _scenesStack.size();
+        
+        if (c == 0)
+        {
+            end();
+        }
+        else
+        {
+            _sendCleanupToScene = true;
+            Scene* scene = T::create(t, _scenesStack.at(c - 1));
+            _scenesStack.replace(c - 1, scene);
+            _nextScene = scene;
+        }
+    }
 
     /** Pops out all scenes from the stack until the root scene in the queue.
      * This scene will replace the running one.
