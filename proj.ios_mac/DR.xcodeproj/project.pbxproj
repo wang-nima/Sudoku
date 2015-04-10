@@ -81,6 +81,19 @@
 		DD7EA34C1AD07DB10063EDC3 /* squarefont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD7EA34B1AD07DB10063EDC3 /* squarefont.ttf */; };
 		DD7EA3521AD0B7AD0063EDC3 /* numberSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD7EA3511AD0B7AD0063EDC3 /* numberSprite.cpp */; };
 		DDB113B91AD71FE000C44F9A /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB113B81AD71FE000C44F9A /* back.png */; };
+		DDB113F51AD7783A00C44F9A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DDB113E01AD7783A00C44F9A /* .gitignore */; };
+		DDB113F61AD7783A00C44F9A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = DDB113E11AD7783A00C44F9A /* LICENSE */; };
+		DDB113F71AD7783A00C44F9A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = DDB113E21AD7783A00C44F9A /* README.md */; };
+		DDB113F81AD7783A00C44F9A /* UIImage+ResizeMagick.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB113E41AD7783A00C44F9A /* UIImage+ResizeMagick.m */; };
+		DDB113F91AD7783A00C44F9A /* UIImage-ResizeMagick.podspec in Resources */ = {isa = PBXBuildFile; fileRef = DDB113E51AD7783A00C44F9A /* UIImage-ResizeMagick.podspec */; };
+		DDB113FA1AD7783A00C44F9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB113E71AD7783A00C44F9A /* AppDelegate.m */; };
+		DDB113FB1AD7783A00C44F9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB113E81AD7783A00C44F9A /* Main.storyboard */; };
+		DDB113FC1AD7783A00C44F9A /* DoAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB113EC1AD7783A00C44F9A /* DoAlertView.m */; };
+		DDB113FD1AD7783A00C44F9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDB113ED1AD7783A00C44F9A /* InfoPlist.strings */; };
+		DDB113FE1AD7783A00C44F9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB113EF1AD7783A00C44F9A /* Images.xcassets */; };
+		DDB114001AD7783A00C44F9A /* TestAlert-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB113F11AD7783A00C44F9A /* TestAlert-Info.plist */; };
+		DDB114031AD779F400C44F9A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB114021AD779F400C44F9A /* CoreLocation.framework */; };
+		DDB114051AD77A4000C44F9A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB114041AD77A4000C44F9A /* MapKit.framework */; };
 		DDD3D7F81AD116F400D306F6 /* Naughty Cartoons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDD3D7F71AD116F400D306F6 /* Naughty Cartoons.ttf */; };
 		DDD3D7FB1AD11D6400D306F6 /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = DDD3D7FA1AD11D6400D306F6 /* replay.png */; };
 /* End PBXBuildFile section */
@@ -200,6 +213,23 @@
 		DD7EA3501AD0B7AD0063EDC3 /* numberSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = numberSprite.h; sourceTree = "<group>"; };
 		DD7EA3511AD0B7AD0063EDC3 /* numberSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = numberSprite.cpp; sourceTree = "<group>"; };
 		DDB113B81AD71FE000C44F9A /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		DDB113E01AD7783A00C44F9A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DDB113E11AD7783A00C44F9A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		DDB113E21AD7783A00C44F9A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DDB113E31AD7783A00C44F9A /* UIImage+ResizeMagick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeMagick.h"; sourceTree = "<group>"; };
+		DDB113E41AD7783A00C44F9A /* UIImage+ResizeMagick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeMagick.m"; sourceTree = "<group>"; };
+		DDB113E51AD7783A00C44F9A /* UIImage-ResizeMagick.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UIImage-ResizeMagick.podspec"; sourceTree = "<group>"; };
+		DDB113E61AD7783A00C44F9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DDB113E71AD7783A00C44F9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DDB113E91AD7783A00C44F9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DDB113EB1AD7783A00C44F9A /* DoAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoAlertView.h; sourceTree = "<group>"; };
+		DDB113EC1AD7783A00C44F9A /* DoAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoAlertView.m; sourceTree = "<group>"; };
+		DDB113EE1AD7783A00C44F9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDB113EF1AD7783A00C44F9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DDB113F11AD7783A00C44F9A /* TestAlert-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TestAlert-Info.plist"; sourceTree = "<group>"; };
+		DDB113F21AD7783A00C44F9A /* TestAlert-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestAlert-Prefix.pch"; sourceTree = "<group>"; };
+		DDB114021AD779F400C44F9A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		DDB114041AD77A4000C44F9A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		DDD3D7F71AD116F400D306F6 /* Naughty Cartoons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Naughty Cartoons.ttf"; sourceTree = "<group>"; };
 		DDD3D7FA1AD11D6400D306F6 /* replay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = replay.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +239,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB114051AD77A4000C44F9A /* MapKit.framework in Frameworks */,
+				DDB114031AD779F400C44F9A /* CoreLocation.framework in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
@@ -294,6 +326,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDB114041AD77A4000C44F9A /* MapKit.framework */,
+				DDB114021AD779F400C44F9A /* CoreLocation.framework */,
 				52B47A461A53D09B004E4C60 /* Security.framework */,
 				D6B0611A1803AB670077942B /* CoreMotion.framework */,
 				503AE11A17EB9C5A00D1A890 /* IOKit.framework */,
@@ -362,6 +396,7 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				DD01A49F1AB7CAE6005D6559 /* GameOverScene.cpp */,
 				DD01A4A01AB7CAE6005D6559 /* GameOverScene.h */,
+				DDB113DD1AD7783A00C44F9A /* TestAlert */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -413,6 +448,52 @@
 			name = Icons;
 			path = ios;
 			sourceTree = SOURCE_ROOT;
+		};
+		DDB113DD1AD7783A00C44F9A /* TestAlert */ = {
+			isa = PBXGroup;
+			children = (
+				DDB113DE1AD7783A00C44F9A /* 3rdSource */,
+				DDB113E61AD7783A00C44F9A /* AppDelegate.h */,
+				DDB113E71AD7783A00C44F9A /* AppDelegate.m */,
+				DDB113E81AD7783A00C44F9A /* Main.storyboard */,
+				DDB113EA1AD7783A00C44F9A /* DoAlertView */,
+				DDB113ED1AD7783A00C44F9A /* InfoPlist.strings */,
+				DDB113EF1AD7783A00C44F9A /* Images.xcassets */,
+				DDB113F11AD7783A00C44F9A /* TestAlert-Info.plist */,
+				DDB113F21AD7783A00C44F9A /* TestAlert-Prefix.pch */,
+			);
+			path = TestAlert;
+			sourceTree = "<group>";
+		};
+		DDB113DE1AD7783A00C44F9A /* 3rdSource */ = {
+			isa = PBXGroup;
+			children = (
+				DDB113DF1AD7783A00C44F9A /* UIImage-ResizeMagick */,
+			);
+			path = 3rdSource;
+			sourceTree = "<group>";
+		};
+		DDB113DF1AD7783A00C44F9A /* UIImage-ResizeMagick */ = {
+			isa = PBXGroup;
+			children = (
+				DDB113E01AD7783A00C44F9A /* .gitignore */,
+				DDB113E11AD7783A00C44F9A /* LICENSE */,
+				DDB113E21AD7783A00C44F9A /* README.md */,
+				DDB113E31AD7783A00C44F9A /* UIImage+ResizeMagick.h */,
+				DDB113E41AD7783A00C44F9A /* UIImage+ResizeMagick.m */,
+				DDB113E51AD7783A00C44F9A /* UIImage-ResizeMagick.podspec */,
+			);
+			path = "UIImage-ResizeMagick";
+			sourceTree = "<group>";
+		};
+		DDB113EA1AD7783A00C44F9A /* DoAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				DDB113EB1AD7783A00C44F9A /* DoAlertView.h */,
+				DDB113EC1AD7783A00C44F9A /* DoAlertView.m */,
+			);
+			path = DoAlertView;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -475,6 +556,8 @@
 				Japanese,
 				French,
 				German,
+				Base,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -519,11 +602,14 @@
 				DD13C6B81ACF1CD600E32F0E /* board.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				DDD3D7FB1AD11D6400D306F6 /* replay.png in Resources */,
+				DDB113F91AD7783A00C44F9A /* UIImage-ResizeMagick.podspec in Resources */,
 				DD79C2C01ACE6980002E90BA /* 6.png in Resources */,
 				DD36B1461AD39E8000F52DBD /* left.png in Resources */,
 				DD79C2BE1ACE6980002E90BA /* 4.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				DDD3D7F81AD116F400D306F6 /* Naughty Cartoons.ttf in Resources */,
+				DDB113F51AD7783A00C44F9A /* .gitignore in Resources */,
+				DDB113FD1AD7783A00C44F9A /* InfoPlist.strings in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				DD36B1451AD39E8000F52DBD /* right.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
@@ -538,19 +624,23 @@
 				DD79C2BF1ACE6980002E90BA /* 5.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				DDB114001AD7783A00C44F9A /* TestAlert-Info.plist in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				DD79C2AF1ACE5D15002E90BA /* unmute.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				DD36B13E1AD3743800F52DBD /* Droplet.wav in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
+				DDB113FE1AD7783A00C44F9A /* Images.xcassets in Resources */,
 				DD79C2C11ACE6980002E90BA /* 8.png in Resources */,
 				DD4ED00E1AD20D9D0013C2BF /* close1.wav in Resources */,
 				DDB113B91AD71FE000C44F9A /* back.png in Resources */,
+				DDB113FB1AD7783A00C44F9A /* Main.storyboard in Resources */,
 				DD79C2BC1ACE6980002E90BA /* 7.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				DD7EA34C1AD07DB10063EDC3 /* squarefont.ttf in Resources */,
+				DDB113F61AD7783A00C44F9A /* LICENSE in Resources */,
 				DD4ED0081AD20C490013C2BF /* wrong.wav in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
@@ -576,10 +666,14 @@
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				DD01A4A71AB7CAE6005D6559 /* MainMenuScene.cpp in Sources */,
+				DDB113F71AD7783A00C44F9A /* README.md in Sources */,
 				DD7EA3521AD0B7AD0063EDC3 /* numberSprite.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				DDB113F81AD7783A00C44F9A /* UIImage+ResizeMagick.m in Sources */,
+				DDB113FC1AD7783A00C44F9A /* DoAlertView.m in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				DD01A4A61AB7CAE6005D6559 /* GameScene.cpp in Sources */,
+				DDB113FA1AD7783A00C44F9A /* AppDelegate.m in Sources */,
 				DD10A8671ACBA58700435B95 /* sudokuentity.cpp in Sources */,
 				DD01A4A51AB7CAE6005D6559 /* GameOverScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -609,6 +703,25 @@
 			targetProxy = 1AC6FB24180E99E1004C840B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DDB113E81AD7783A00C44F9A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDB113E91AD7783A00C44F9A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DDB113ED1AD7783A00C44F9A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDB113EE1AD7783A00C44F9A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
