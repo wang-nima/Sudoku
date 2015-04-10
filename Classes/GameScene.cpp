@@ -233,10 +233,10 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
             emptyCellinBoardCount--;
             if (emptyCellinBoardCount == 0) {
                 if (checkGameBoard()) {
-                    CCLOG("success");
+                    MessageBox("well done", "success");
                     label->setString("success");
                 } else {
-                    CCLOG("some thing is not correct");
+                    MessageBox("", "some thing is incorrect");
                     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("wrong.wav");
                     label->setString("some thing is not correct");
                 }
@@ -248,6 +248,8 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
         }
         flag = true;    // put cell in board and the block is not empty
     }
+// should not handle emptyCellCount here, it was handled in onTouchBegin
+// !flag means successfully drag number from cell out of board
     int num = movingSprite->num;
     movingSprite->inBoard = false;
     movingSprite->currentColumn = movingSprite->currentRow = -1;
@@ -291,7 +293,6 @@ void GameScene::resetBoard() {
             auto drop = PhysicsBody::createBox( moveAbleCell[0]->getContentSize(), PhysicsMaterial( 1, 0.5, 0 ) );
             (*it)->setPhysicsBody(drop);
             (*it)->inBoard = false;
-            emptyCellinBoardCount++;
             state[(*it)->currentRow][(*it)->currentColumn] = 0;
             moveAbleCell.erase(it);
         } else {
@@ -300,6 +301,7 @@ void GameScene::resetBoard() {
     }
     assert(moveAbleCell.size() == 9);
 // clear state
+    emptyCellinBoardCount = 0;
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             if (game.startStatus[i][j] == 0) {
@@ -310,6 +312,8 @@ void GameScene::resetBoard() {
     }
     //CCLOG("%lu b", moveAbleCell.size());
 }
+
+// no need to handle emptyCellinBoardCount in this function, it is handled in resetBoard
 
 void GameScene::showAnswer() {
     
@@ -335,8 +339,6 @@ void GameScene::showAnswer() {
                                            boardTopLeft.y - ( i + 0.5 ) * cellLength);
                     ans.insert(fixedCell);
                     this->addChild(fixedCell);
-                } else {
-                    emptyCellinBoardCount++;
                 }
             }
         }
