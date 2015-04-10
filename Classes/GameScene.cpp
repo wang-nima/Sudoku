@@ -114,6 +114,8 @@ bool GameScene::init()
         Point touchPosition = touch->getLocation();
         selectSpriteForTouch(touchPosition);
         if (movingSprite) {
+            auto action = ScaleTo::create(0.1, 1.3);
+            movingSprite->runAction(action);
             if (movingSprite->inBoard == true) {
                 state[movingSprite->currentRow][movingSprite->currentColumn] = 0;
                 emptyCellinBoardCount++;
@@ -133,6 +135,8 @@ bool GameScene::init()
         if (movingSprite) {
             Point touchLocation = touch->getLocation();
             adjustPosition(touchLocation);
+            auto action = ScaleTo::create(0.1, 1.0);
+            movingSprite->runAction(action);
             movingSprite = nullptr;
         }
     };
@@ -271,6 +275,11 @@ void GameScene::addNewNumberCell(int num) {
     newNumCell->num = num;
     newNumCell->inBoard = false;
     newNumCell->currentRow = newNumCell->currentColumn = -1;
+    RotateBy * rotLeft = RotateBy::create(0.1, -14.0);
+    RotateBy * rotCenter = RotateBy::create(0.1, 0.0);
+    RotateBy * rotRight = RotateBy::create(0.1, 14.0);
+    Sequence * rotSeq = Sequence::create(rotLeft, rotCenter, rotRight, rotCenter, NULL);
+    newNumCell->runAction(rotSeq);
     moveAbleCell.push_back(newNumCell);
     this->addChild(newNumCell);
 }

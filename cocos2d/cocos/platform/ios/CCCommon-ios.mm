@@ -47,6 +47,19 @@ void MessageBox(const char * msg, const char * title)
                                                          delegate: nil
                                                 cancelButtonTitle: @"OK"
                                                 otherButtonTitles: nil];
+    
+    
+    //UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(220, 10, 40, 40)];
+    //
+    //NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"left.png"]];
+    //UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
+    //[imageView setImage:bkgImg];
+    //[bkgImg release];
+    //[path release];
+    //
+    //[messageBox addSubview:imageView];
+    //[imageView release];
+    
     [messageBox autorelease];
     [messageBox show];
 }
