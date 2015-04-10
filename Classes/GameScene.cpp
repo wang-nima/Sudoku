@@ -302,14 +302,15 @@ void GameScene::resetBoard() {
     assert(moveAbleCell.size() == 9);
 // clear state
     emptyCellinBoardCount = 0;
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
             if (game.startStatus[i][j] == 0) {
                 state[i][j] = 0;
                 emptyCellinBoardCount++;
             }
         }
     }
+    CCLOG("empty cell %d", emptyCellinBoardCount);
     //CCLOG("%lu b", moveAbleCell.size());
 }
 
