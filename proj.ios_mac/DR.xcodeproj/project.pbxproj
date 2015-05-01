@@ -91,6 +91,7 @@
 		DDB114001AD7783A00C44F9A /* TestAlert-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB113F11AD7783A00C44F9A /* TestAlert-Info.plist */; };
 		DDB114031AD779F400C44F9A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB114021AD779F400C44F9A /* CoreLocation.framework */; };
 		DDB114051AD77A4000C44F9A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB114041AD77A4000C44F9A /* MapKit.framework */; };
+		DDBB3D841AF44339001A6495 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBB3D831AF44339001A6495 /* Media.xcassets */; };
 		DDD3D7F81AD116F400D306F6 /* Naughty Cartoons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDD3D7F71AD116F400D306F6 /* Naughty Cartoons.ttf */; };
 		DDD3D7FB1AD11D6400D306F6 /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = DDD3D7FA1AD11D6400D306F6 /* replay.png */; };
 /* End PBXBuildFile section */
@@ -223,6 +224,7 @@
 		DDB113F21AD7783A00C44F9A /* TestAlert-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestAlert-Prefix.pch"; sourceTree = "<group>"; };
 		DDB114021AD779F400C44F9A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		DDB114041AD77A4000C44F9A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		DDBB3D831AF44339001A6495 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		DDD3D7F71AD116F400D306F6 /* Naughty Cartoons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Naughty Cartoons.ttf"; sourceTree = "<group>"; };
 		DDD3D7FA1AD11D6400D306F6 /* replay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = replay.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -305,6 +307,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				DDBB3D831AF44339001A6495 /* Media.xcassets */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				46880B7519C43A67006E1F66 /* Resources */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
@@ -596,6 +599,7 @@
 				DD36B1461AD39E8000F52DBD /* left.png in Resources */,
 				DD79C2BE1ACE6980002E90BA /* 4.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				DDBB3D841AF44339001A6495 /* Media.xcassets in Resources */,
 				DDD3D7F81AD116F400D306F6 /* Naughty Cartoons.ttf in Resources */,
 				DDB113F51AD7783A00C44F9A /* .gitignore in Resources */,
 				DDB113FD1AD7783A00C44F9A /* InfoPlist.strings in Resources */,
@@ -706,6 +710,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -725,7 +731,7 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -742,6 +748,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -759,7 +767,7 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
