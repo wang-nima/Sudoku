@@ -212,7 +212,9 @@ void GameScene::updateMovingSpritePosition(Vec2 p) {
 // for onTouchEnd
 void GameScene::adjustPosition(cocos2d::Point locationBeforeAdjust) {
     // move into boarrd cell
-    bool flag = false;
+    bool dragTheCellInBoardAndTheCellIsNotEmpty = false;
+    
+    // drag number into board
     if (board->getBoundingBox().containsPoint(locationBeforeAdjust)) {
         int x = locationBeforeAdjust.x;
         int y = locationBeforeAdjust.y;
@@ -249,21 +251,25 @@ void GameScene::adjustPosition(cocos2d::Point locationBeforeAdjust) {
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Droplet.wav");
             return;
         }
-        flag = true;    // put cell in board and the block is not empty
+        // cell is not empty
+        dragTheCellInBoardAndTheCellIsNotEmpty = true;    // put cell in board and the block is not empty
     }
+    
 // should not handle emptyCellCount here, it was handled in onTouchBegin
-// !flag means successfully drag number from cell out of board
+// !dragTheCellInBoardAndTheCellIsNotEmpty means:
+// successfully drag number from cell out of board
+    
     int num = movingSprite->num;
     movingSprite->inBoard = false;
     movingSprite->currentColumn = movingSprite->currentRow = -1;
-    if (!flag) {
-        for (auto it = moveAbleCell.begin(); it != moveAbleCell.end(); it++) {
-            if (*it == movingSprite) {
-                moveAbleCell.erase(it);
-                break;
-            }
-        }
-    }
+    //if (!dragTheCellInBoardAndTheCellIsNotEmpty) {
+    //    for (auto it = moveAbleCell.begin(); it != moveAbleCell.end(); it++) {
+    //        if (*it == movingSprite) {
+    //            moveAbleCell.erase(it);
+    //            break;
+    //        }
+    //    }
+    //}
     auto action = MoveTo::create(0.2, initPosition[num-1]);
     movingSprite->runAction(action);
 }
@@ -307,7 +313,7 @@ void GameScene::resetBoard() {
             ++it;
         }
     }
-    assert(moveAbleCell.size() == 9);
+    //assert(moveAbleCell.size() == 9);
 // clear state
     emptyCellinBoardCount = 0;
     for (int i = 0; i < 9; i++) {
