@@ -3,7 +3,6 @@
 #include <CCUserDefault.h>
 
 USING_NS_CC;
-using namespace cocos2d::ui;
 
 
 Scene* GameScene::createScene()
@@ -22,13 +21,13 @@ bool GameScene::init()
     if ( !LayerColor::initWithColor(Color4B::WHITE)) {
         return false;
     }
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    auto center = Point(visibleSize.width / 2, visibleSize.height / 2);
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
+    auto center = cocos2d::Point(visibleSize.width / 2, visibleSize.height / 2);
     
 // add label
     label = Label::createWithTTF("Drag the number cell into board!", "Naughty Cartoons.ttf", 40);
-    label->setPosition(Point(visibleSize.width / 2,
-                             visibleSize.height - 100));
+    label->setPosition(cocos2d::Point(visibleSize.width / 2,
+                                      visibleSize.height - 100));
     label->setColor(Color3B::BLACK);
     this->addChild(label);
     
@@ -57,7 +56,7 @@ bool GameScene::init()
     menu_item_2->setPosition(visibleSize.width - 150, visibleSize.height -200 );
     
     auto menu = Menu::create(menu_item_1, menu_item_2, nullptr);
-    menu->setPosition(Point(0, 0));
+    menu->setPosition(cocos2d::Point(0, 0));
     this->addChild(menu);
 // pre load music effect
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("Droplet.wav");
@@ -100,8 +99,8 @@ bool GameScene::init()
         numberSprite *numberCell = numberSprite::create(to_string(i) + ".png");
         numberCell->num = i;
         numberCell->inBoard = false;
-        initPosition.push_back(Point(boardTopLeft.x / 2,
-                                     visibleSize.height - visibleSize.height / 10 * i));
+        initPosition.push_back(cocos2d::Point(boardTopLeft.x / 2,
+                                              visibleSize.height - visibleSize.height / 10 * i));
         numberCell->setPosition(initPosition[i-1]);
         this->addChild(numberCell);
         moveAbleCell.push_back(numberCell);
@@ -111,7 +110,7 @@ bool GameScene::init()
     auto touchListener = EventListenerTouchOneByOne::create();
     touchListener->setSwallowTouches(true);
     touchListener->onTouchBegan = [&](Touch* touch, Event* event) -> bool {
-        Point touchPosition = touch->getLocation();
+        cocos2d::Point touchPosition = touch->getLocation();
         selectSpriteForTouch(touchPosition);
         if (movingSprite) {
             auto action = ScaleTo::create(0.1, 1.3);
@@ -125,15 +124,15 @@ bool GameScene::init()
     };
     touchListener->onTouchMoved = [&] (Touch* touch, Event* event) -> void {
         if (movingSprite) {
-            Point touchLocation = touch->getLocation();
-            Point oldTouchLocation = touch->getPreviousLocation();
+            cocos2d::Point touchLocation = touch->getLocation();
+            cocos2d::Point oldTouchLocation = touch->getPreviousLocation();
             Vec2 translation = touchLocation - oldTouchLocation;
             this->updateMovingSpritePosition(translation);
         }
     };
     touchListener->onTouchEnded = [&] (Touch* touch, Event* event) -> void {
         if (movingSprite) {
-            Point touchLocation = touch->getLocation();
+            cocos2d::Point touchLocation = touch->getLocation();
             adjustPosition(touchLocation);
             auto action = ScaleTo::create(0.1, 1.0);
             movingSprite->runAction(action);
@@ -144,10 +143,10 @@ bool GameScene::init()
     
 
 // set mute button
-    auto mute = Button::create("mute.png");
-    mute->setPosition( Point(visibleSize.width - 100, 100) );
+    auto mute = cocos2d::ui::Button::create("mute.png");
+    mute->setPosition( cocos2d::Point(visibleSize.width - 100, 100) );
     
-    mute->addTouchEventListener([=](Ref* sender, Widget::TouchEventType type){
+    mute->addTouchEventListener([=](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
         
         if (type == ui::Widget::TouchEventType::BEGAN) {
             if (musicPlaying) {
@@ -166,11 +165,11 @@ bool GameScene::init()
     
 // reset the board
     
-    replay = Button::create("replay.png");
-    replay->setPosition( Point(visibleSize.width - 100, 250) );
+    replay = cocos2d::ui::Button::create("replay.png");
+    replay->setPosition( cocos2d::Point(visibleSize.width - 100, 250) );
     
     
-    replay->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
+    replay->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::BEGAN) {
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("close1.wav");
             resetBoard();
@@ -180,11 +179,11 @@ bool GameScene::init()
 
 // go back to main menuscene
     
-    goBackToMainMenu = Button::create("back.png");
-    goBackToMainMenu->setPosition( Point(visibleSize.width - 100, 400) );
+    goBackToMainMenu = cocos2d::ui::Button::create("back.png");
+    goBackToMainMenu->setPosition( cocos2d::Point(visibleSize.width - 100, 400) );
     
     
-    goBackToMainMenu->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
+    goBackToMainMenu->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::BEGAN) {
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("click.wav");
             Director::getInstance()->popSceneWithTransition<TransitionSlideInR>(TRANSITION_TIME);
@@ -196,7 +195,7 @@ bool GameScene::init()
 }
 
 // for onTouchBegan method, set movingSprite
-void GameScene::selectSpriteForTouch(Point p) {
+void GameScene::selectSpriteForTouch(cocos2d::Point p) {
     for (int i = 0; i < moveAbleCell.size(); i++) {
         if (moveAbleCell[i]->getBoundingBox().containsPoint(p)) {
             movingSprite = moveAbleCell[i];
@@ -206,12 +205,12 @@ void GameScene::selectSpriteForTouch(Point p) {
 
 // for onTouchMoved
 void GameScene::updateMovingSpritePosition(Vec2 p) {
-    Point oldPosition = movingSprite->getPosition();
+    cocos2d::Point oldPosition = movingSprite->getPosition();
     movingSprite->setPosition(oldPosition + p);
 }
 
 // for onTouchEnd
-void GameScene::adjustPosition(Point locationBeforeAdjust) {
+void GameScene::adjustPosition(cocos2d::Point locationBeforeAdjust) {
     // move into boarrd cell
     bool flag = false;
     if (board->getBoundingBox().containsPoint(locationBeforeAdjust)) {
@@ -237,7 +236,7 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
             emptyCellinBoardCount--;
             if (emptyCellinBoardCount == 0) {
                 if (checkGameBoard()) {
-                    MessageBox("well done", "success");
+                    MessageBox("", "success");
                     label->setString("success");
                 } else {
                     MessageBox("", "some thing is incorrect");
@@ -245,7 +244,7 @@ void GameScene::adjustPosition(Point locationBeforeAdjust) {
                     label->setString("some thing is not correct");
                 }
             }
-            auto action = MoveTo::create(0.1, Point(new_x, new_y));
+            auto action = MoveTo::create(0.1, cocos2d::Point(new_x, new_y));
             movingSprite->runAction(action);
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Droplet.wav");
             return;

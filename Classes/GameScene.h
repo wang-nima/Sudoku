@@ -11,9 +11,6 @@
 #include <vector>
 #include "unordered_set"
 
-using namespace cocos2d;
-using namespace cocos2d::ui;
-using namespace std;
 
 class GameScene: public cocos2d::LayerColor
 {
@@ -38,19 +35,19 @@ private:
     
     vector<numberSprite*> moveAbleCell;     // include cell in the left and in board
     
-    vector<Point> initPosition;
+    std::vector<cocos2d::Point> initPosition;
     
-    Point boardTopLeft;
+    cocos2d::Point boardTopLeft;
     
     int cellLength;
     
     Sprite *board;
     
-    void selectSpriteForTouch(Point touchLocation);
+    void selectSpriteForTouch(cocos2d::Point touchLocation);
     
     void updateMovingSpritePosition(Vec2 p);
     
-    void adjustPosition(Point locationBeforeAdjust);
+    void adjustPosition(cocos2d::Point locationBeforeAdjust);
     
     void addNewNumberCell(int num);         // create number cell num at left side
     
@@ -64,7 +61,7 @@ private:
     
     bool musicPlaying;
     
-    Button *replay;
+    cocos2d::ui::Button *replay;
     
     //PhysicsBody *drop;
     
@@ -72,9 +69,9 @@ private:
     
     bool answerShowing = false;
     
-    unordered_set<Label*> ans;            // for delete ans
+    std::unordered_set<Label*> ans;            // for delete ans
     
-    Button *goBackToMainMenu;
+    cocos2d::ui::Button *goBackToMainMenu;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

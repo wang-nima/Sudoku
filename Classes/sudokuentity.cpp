@@ -257,11 +257,20 @@ int puzzlegenerator(int a[9][9],int m)
     return n;
 }
 
+void print(int a[][9]) {
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+}
+
 /* 功能：生成终盘
  * 输入：任意数组
  * 输出：将改变输入数组，复写为终盘数字
  */
-void resultgenerator(int a[9][9])
+static void resultgenerator(int a[9][9])
 {
     int i,j,r;
     int z[9];
@@ -274,7 +283,9 @@ void resultgenerator(int a[9][9])
         for (j=r;j<=7;j++)
             z[j]=z[j+1];
     }
+    //print(a);
     getresult(a);
+    //print(a);
 }
 /********************************** INNER FUNCTION *********************************************/
 void SudokuEntity::generateHavingFun()
