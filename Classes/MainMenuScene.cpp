@@ -92,6 +92,7 @@ bool MainMenuScene::init()
     
     mute = Button::create("mute.png");
     mute->setPosition( Point(visibleSize.width - 100, 100) );
+    
 // protect the button not block by number rain
     buttonEdge = PhysicsBody::createEdgeBox(Size(mute->getVirtualRendererSize().width + 30,
                                                  mute->getVirtualRendererSize().height + 30));
@@ -110,9 +111,8 @@ bool MainMenuScene::init()
                 CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
                 mute->loadTextureNormal("mute.png");
                 musicPlaying = true;
-            }    
+            }
         }
-        
     });
     this->addChild(mute);
     
@@ -215,7 +215,7 @@ void MainMenuScene::selectSpriteForTouch(Point p) {
     for (auto it = cells.begin(); it != cells.end(); ++it) {
         if ((*it)->getBoundingBox().containsPoint(p)) {
             movingSprite = *it;
-            break;
+            return;
         }
     }
 }
