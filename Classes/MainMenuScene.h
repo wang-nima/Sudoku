@@ -7,6 +7,7 @@
 #include "SimpleAudioEngine.h"
 #include "ui/CocosGUI.h"
 #include <ctime>       /* time */
+
 using namespace cocos2d;
 using namespace std;
 using namespace cocos2d::ui;

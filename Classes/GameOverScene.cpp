@@ -26,11 +26,6 @@ bool GameOverScene::init()
     {
         return false;
     }
-    
-    
-    
-
-
 
     return true;
 }
