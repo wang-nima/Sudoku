@@ -1,6 +1,6 @@
 # Sudoku
 
-[a link](https://www.youtube.com/watch?v=FOb5r2nRukQ)
+[Click to watch video about this project](https://www.youtube.com/watch?v=FOb5r2nRukQ)
 
 
 ![image](https://github.com/wang-nima/DirectedResearch/blob/sudoku/image/1.png)
