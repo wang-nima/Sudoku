@@ -1,6 +1,7 @@
 #include "GameScene.h"
 #include <cassert>
 #include <CCUserDefault.h>
+#include "PluginFacebook/PluginFacebook.h"
 
 USING_NS_CC;
 
@@ -51,7 +52,7 @@ bool GameScene::init()
     menu_item_1->setColor(Color3B::BLACK);
     menu_item_1->setPosition(visibleSize.width - 150, visibleSize.height -100 );
     
-    auto menu_item_2 = MenuItemFont::create("Share");
+    auto menu_item_2 = MenuItemFont::create("Share", CC_CALLBACK_0(GameScene::share, this));
     menu_item_2->setColor(Color3B::BLACK);
     menu_item_2->setPosition(visibleSize.width - 150, visibleSize.height -200 );
     
@@ -365,4 +366,19 @@ void GameScene::showAnswer() {
         ans.clear();
         answerShowing = false;
     }
+}
+
+void GameScene::share() {
+    sdkbox::PluginFacebook::login();
+    //sdkbox::PluginFacebook::requestReadPermissions({sdkbox::FB_PERM_READ_PUBLIC_PROFILE, sdkbox::FB_PERM_READ_USER_FRIENDS});
+    sdkbox::PluginFacebook::requestPublishPermissions({sdkbox::FB_PERM_PUBLISH_POST});
+    sdkbox::FBShareInfo info;
+    info.type  = sdkbox::FB_LINK;
+    info.link  = "http://www.cocos2d-x.org";
+    info.title = "hehe";
+    info.text  = "haha";
+    info.image = "http://cocos2d-x.org/images/logo.png";
+    sdkbox::PluginFacebook::share(info);
+
+    CCLOG("share");
 }

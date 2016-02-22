@@ -67,6 +67,8 @@ private:
     
     void showAnswer();
     
+    void share();
+    
     bool answerShowing = false;
     
     std::unordered_set<Label*> ans;            // for delete ans
